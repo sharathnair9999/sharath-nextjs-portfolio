@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+@layer components {
+  .heroButton {
+    @apply px-6 py-2 border border-customGray font-bold rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:text-accentColor/40 hover:border-accentColor/40;
+  }
+  .contact-input {
+    @apply outline-none bg-slate-400/10 rounded-md border-b px-2 py-3 border-customGray  text-gray-500 placeholder-gray-500 transition-all focus:border-accentColor/40 hover:border-accentColor/40 focus:text-accentColor/40;
+  }
+  .common-hero-circle {
+    @apply rounded-full border mt-52 absolute;
+  }
+  .section-title {
+    @apply absolute top-16 md:top-20 uppercase z-[100] md:tracking-[20px] tracking-[10px] text-gray-500 text-2xl;
+  }
+  .tw-bg-primary {
+    @apply dark:bg-[rgb(36,36,36)] bg-slate-50;
+  }
+  .toogle-switch {
+    @apply px-px flex justify-center items-center transition-all rounded-full;
+  }
+  .hidden-scrollbar::-webkit-scrollbar {
+    @apply h-2 bg-accentColor/30 rounded-lg;
+  }
+  .hidden-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-accentColor/60 rounded-lg;
+  }
+  .hidden-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-accentColor;
+  }
+  *::selection {
+    @apply bg-gray-600 text-white;
+  }
+  .arrow-container {
+    @apply absolute z-30 top-1/2;
+  }
+  .left-arrow {
+    @apply left-3 lg:left-10;
+  }
+  .right-arrow {
+    @apply right-3 lg:right-10;
+  }
+  .arrow-style {
+    @apply text-3xl p-1 lg:text-5xl lg:p-2 rounded-full bg-primary hover:bg-accentColor/50 transition-all cursor-pointer shadow-lg;
+  }
+}
+
+.exp-company {
+  border-radius: 50% !important;
+  height: 5rem !important;
+  width: 5rem !important;
+}
+@media screen and (min-width: 768px) {
+  .exp-company {
+    height: 10rem !important;
+    width: 10rem !important;
+  }
+}
