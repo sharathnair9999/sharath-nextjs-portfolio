@@ -41,7 +41,7 @@ const WorkExperience = (props: Props) => {
         autoPlay={true}
         autoFocus={true}
         centerMode={true}
-        className="mt-32 w-96 lg:w-full"
+        className="mt-32 w-80 lg:w-full"
         infiniteLoop={true}
         centerSlidePercentage={windowDimensions.width > 768 ? 60 : 95}
         showStatus={false}

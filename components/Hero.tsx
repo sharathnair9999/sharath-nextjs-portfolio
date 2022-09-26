@@ -12,7 +12,7 @@ const Hero = (props: Props) => {
     delaySpeed: 200,
   });
   return (
-    <div className="h-screen flex flex-col items-center space-y-8 justify-center text-center z-20 overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center space-y-8 justify-center text-center overflow-hidden">
       <BackgroundCircles />
       <motion.img
         initial={{
@@ -31,11 +31,11 @@ const Hero = (props: Props) => {
         className="h-32 w-32 rounded-full relative mx-auto object-cover"
       />
       <div className="z-20">
-        <h2 className="text-xs font-bold md:text-md  uppercase text-gray-500 dark:text-gray-500 pb-2 tracking-[10px] md:tracking-[15px]">
+        <h2 className="text-xs font-bold md:text-md uppercase text-gray-500 dark:text-gray-500 pb-2 tracking-[10px] md:tracking-[15px]">
           Frontend Engineer
         </h2>
         <h1 className="text-2xl lg:text-4xl font-semibold px-10">
-          <span className="italic">{text}</span>
+          <span className="italic dark:text-white">{text}</span>
           <Cursor cursorColor="#F7AB0A" />
         </h1>
         <div className="flex flex-wrap justify-center items-center gap-3 mt-3">

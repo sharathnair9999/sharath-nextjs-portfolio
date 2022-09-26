@@ -10,31 +10,31 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-*::-webkit-scrollbar {
-  display: none;
-}
 
 @layer components {
+  .home {
+    @apply scrollbar-thin dark:scrollbar-track-gray_600 scrollbar-track-gray_200 scrollbar-thumb-accentColor/70 hover:scrollbar-thumb-accentColor transition-colors scrollbar-track-rounded-md scrollbar-thumb-rounded-md;
+  }
   .heroButton {
-    @apply px-6 py-2 border border-customGray font-bold rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:text-accentColor/40 hover:border-accentColor/40;
+    @apply px-6 py-2 border border-gray_900 font-bold rounded-full uppercase text-xs tracking-widest text-gray_600 transition-all hover:text-accentColor/40 hover:border-accentColor/40;
   }
   .contact-input {
-    @apply outline-none bg-slate-400/10 rounded-md border-b px-2 py-3 border-customGray  text-gray-500 placeholder-gray-500 transition-all focus:border-accentColor/40 hover:border-accentColor/40 focus:text-accentColor/40;
+    @apply outline-none bg-gray_300/10 rounded-md border-b dark:text-blue_100 px-2 py-2 md:py-3 border-blue_900  text-blue_900 placeholder-gray_500 transition-all focus:border-blue_300/40 hover:border-blue_300/40 focus:text-blue_900/40;
   }
   .common-hero-circle {
-    @apply rounded-full border mt-52 absolute;
+    @apply rounded-full border absolute mt-52;
   }
   .section-title {
     @apply absolute top-16 md:top-20 uppercase z-[100] md:tracking-[20px] tracking-[10px] text-gray-500 text-2xl;
   }
   .tw-bg-primary {
-    @apply dark:bg-[rgb(36,36,36)] bg-slate-50;
+    @apply dark:bg-[rgb(36,36,36)] bg-accentColor/30;
   }
-  .toogle-switch {
-    @apply px-px flex justify-center items-center transition-all rounded-full;
+  .toggle-switch {
+    @apply p-1 text-3xl flex justify-center items-center transition-all rounded-full;
   }
   .hidden-scrollbar::-webkit-scrollbar {
-    @apply h-2 bg-accentColor/30 rounded-lg;
+    @apply h-2 bg-accentColor/30 rounded-lg overflow-x-hidden;
   }
   .hidden-scrollbar::-webkit-scrollbar-thumb {
     @apply bg-accentColor/60 rounded-lg;

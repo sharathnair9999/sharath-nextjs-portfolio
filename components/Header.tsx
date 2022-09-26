@@ -29,7 +29,7 @@ export default function Header({}: Props) {
     }
   };
   return (
-    <header className="sticky top-0 flex items-center justify-center max-w-full px-4 lg:px-10 py-1 lg:py-2 z-30 bg-transparent md:px-20 ">
+    <header className="sticky top-0 flex items-center justify-center max-w-full px-4 lg:px-10 py-1 lg:py-2 z-30  md:px-20 ">
       <motion.div
         initial={{
           x: -500,
@@ -79,7 +79,7 @@ export default function Header({}: Props) {
           fgColor="gray"
           bgColor="transparent"
         />
-        <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
+        <p className="uppercase hidden md:inline-flex text-sm text-gray-700 dark:text-gray-400">
           Get In Touch
         </p>
       </motion.div>
@@ -97,10 +97,7 @@ export default function Header({}: Props) {
             animate={{ opacity: 1, x: [-100, 20, 0] }}
             transition={{ duration: 1.5 }}
           >
-            <MdOutlineLightMode
-              size={"1.5rem"}
-              className="toggle-switch text-gray-400 hover:bg-gray-700 "
-            />
+            <MdOutlineLightMode className="toggle-switch text-gray-400 hover:bg-gray-700 " />
           </motion.div>
         ) : (
           <motion.div
@@ -108,10 +105,7 @@ export default function Header({}: Props) {
             animate={{ opacity: 1, x: [-100, 20, 0] }}
             transition={{ duration: 1.5 }}
           >
-            <MdDarkMode
-              size={"1.5rem"}
-              className="toggle-switch hover:bg-slate-200 "
-            />
+            <MdDarkMode className="toggle-switch hover:bg-slate-200 " />
           </motion.div>
         )}
       </motion.button>

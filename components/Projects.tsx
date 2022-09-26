@@ -12,6 +12,7 @@ const Projects = (props: Props) => {
 
       <Carousel
         autoPlay={true}
+        thumbWidth={50}
         showStatus={false}
         showIndicators={false}
         autoFocus={true}
@@ -50,7 +51,7 @@ const Projects = (props: Props) => {
                 </span>
                 Social Ease
               </h4>
-              <p>
+              <p className="dark:text-gray_200 text-sm lg:text-lg max-w-2xl mx-auto">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Voluptatum facilis officiis sapiente error quos quibusdam
                 adipisci sit. Facilis distinctio ipsum eligendi fugit aut
@@ -60,7 +61,7 @@ const Projects = (props: Props) => {
           </motion.div>
         ))}
       </Carousel>
-      <div className="w-full absolute top=[30%] left-0 bg-accentColor/20 h-[500px] -skew-y-12" />
+      <div className="w-full absolute top=[30%] left-0 bg-blue_500/20 h-[500px] -skew-y-12" />
     </div>
   );
 };

@@ -11,7 +11,7 @@ import Header from "../components/Header";
 
 const Home: NextPage = () => {
   return (
-    <div className="tw-bg-primary dark:text-white text-black h-screen overflow-scroll">
+    <div className="tw-bg-primary home transition-colors ease-in-out duration-500 h-screen overflow-y-scroll">
       <Head>
         <title>Sharath Nair</title>
       </Head>

@@ -14,7 +14,7 @@ export const socials = [
   {
     url: "https://github.com/sharathnair9999",
     label: "GitHub",
-    fgColor: "#e0e0e0",
+    fgColor: "gray",
     bgColor: "transparent",
   },
 ];
