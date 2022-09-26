@@ -23,7 +23,7 @@ const BackgroundCircles = (props: Props) => {
           <div
             className={`${
               id === 3
-                ? "border-accentColor animate-pulse"
+                ? "border-blue_600 animate-pulse"
                 : "dark:border-heroCircle border-heroCircle/20"
             } ${
               id === 0 && "animate-ping"

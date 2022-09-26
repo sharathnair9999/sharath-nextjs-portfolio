@@ -19,16 +19,16 @@
     @apply px-6 py-2 border border-gray_900 font-bold rounded-full uppercase text-xs tracking-widest text-gray_600 transition-all hover:text-accentColor/40 hover:border-accentColor/40;
   }
   .contact-input {
-    @apply outline-none bg-gray_300/10 rounded-md border-b dark:text-blue_100 px-2 py-2 md:py-3 border-blue_900  text-blue_900 placeholder-gray_500 transition-all focus:border-blue_300/40 hover:border-blue_300/40 focus:text-blue_900/40;
+    @apply outline-none bg-gray_300/10 rounded-md border-b dark:text-blue_100 px-2 py-1 md:py-2 border-blue_900  text-blue_900 placeholder-gray_500 transition-all focus:border-blue_300/40 hover:border-blue_300/40 focus:text-blue_900/40;
   }
   .common-hero-circle {
     @apply rounded-full border absolute mt-52;
   }
   .section-title {
-    @apply absolute top-16 md:top-20 uppercase z-[100] md:tracking-[20px] tracking-[10px] text-gray-500 text-2xl;
+    @apply absolute top-16 md:top-20 uppercase z-[100] md:tracking-[20px] tracking-[10px] text-gray_600 text-2xl;
   }
   .tw-bg-primary {
-    @apply dark:bg-[rgb(36,36,36)] bg-accentColor/30;
+    @apply dark:bg-gray_900 bg-accentColor/30;
   }
   .toggle-switch {
     @apply p-1 text-3xl flex justify-center items-center transition-all rounded-full;
@@ -55,7 +55,7 @@
     @apply right-3 lg:right-10;
   }
   .arrow-style {
-    @apply text-3xl p-1 lg:text-5xl lg:p-2 rounded-full bg-primary hover:bg-accentColor/50 transition-all cursor-pointer shadow-lg;
+    @apply text-3xl p-1 lg:text-5xl lg:p-2 rounded-full bg-gray_900 hover:bg-accentColor/50 transition-all cursor-pointer shadow-lg;
   }
 }
 
@@ -63,6 +63,7 @@
   border-radius: 50% !important;
   height: 5rem !important;
   width: 5rem !important;
+  background-color: hsl(0, 0%, 14%);
 }
 @media screen and (min-width: 768px) {
   .exp-company {

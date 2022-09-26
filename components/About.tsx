@@ -28,12 +28,14 @@ const About = (props: Props) => {
         src="https://res.cloudinary.com/sharath-media-library/image/upload/v1663415197/portfolio/sharath_x9gvra.png"
       />
       <div className="space-y-4 md:space-y-6 px-0 md:px-10">
-        <h4 className="text-2xl font-semibold">
-          Here is a{" "}
-          <span className="underline decoration-accentColor/50 ">little</span>{" "}
-          background
+        <h4 className="text-2xl lg:text-3xl font-semibold dark:text-gray_100">
+          A{" "}
+          <span className="underline underline-offset-[6px] decoration-blue_600">
+            little
+          </span>{" "}
+          about me
         </h4>
-        <p className="text-sm text-white/80">
+        <p className="text-xs md:text-base md:text-left text-gray_300 text-right">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti
           tenetur sunt nulla dolores aspernatur hic officia, ipsum nisi
           excepturi ducimus, totam a? Velit deserunt veniam, praesentium vero

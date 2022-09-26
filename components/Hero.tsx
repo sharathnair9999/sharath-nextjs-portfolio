@@ -36,7 +36,7 @@ const Hero = (props: Props) => {
         </h2>
         <h1 className="text-2xl lg:text-4xl font-semibold px-10">
           <span className="italic dark:text-white">{text}</span>
-          <Cursor cursorColor="#F7AB0A" />
+          <Cursor cursorColor="#4e87f9" />
         </h1>
         <div className="flex flex-wrap justify-center items-center gap-3 mt-3">
           <Link href={"#about"}>

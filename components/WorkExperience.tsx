@@ -39,10 +39,10 @@ const WorkExperience = (props: Props) => {
       {/* <div className="flex max-h-screen space-x-5 overflow-x-scroll w-full mt-10 py-10 px-2 hidden-scrollbar snap-x snap-mandatory"> */}
       <Carousel
         autoPlay={true}
+        swipeScrollTolerance={20}
         autoFocus={true}
         centerMode={true}
         className="mt-32 w-80 lg:w-full"
-        infiniteLoop={true}
         centerSlidePercentage={windowDimensions.width > 768 ? 60 : 95}
         showStatus={false}
         showIndicators={false}

@@ -13,17 +13,13 @@ const Contact = (props: Props) => {
   const onSubmit: SubmitHandler<Inputs> = (formData) => {};
   return (
     <div className="h-screen relative flex flex-col text-center md:text-left md:flex-row px-10 justify-evenly mx-auto items-center">
-      <h3 className="absolute md:top-8 top-16 uppercase tracking-[20px] text-gray-500 text-2xl ">
-        Contact
-      </h3>
+      <h3 className="section-title">Contact</h3>
       <div className="flex flex-col space-y-8 mt-20 md:mt-12">
         <h4 className="dark:text-gray_300 text-lg md:text-3xl font-semibold text-center">
-          I have got just what you need.
-          <span className="underline decoration-accentColor/50">
-            Let&apos;s Talk
-          </span>
+          Got something for me?{" "}
+          <span className="underline decoration-accentColor/50">Gotcha!</span>
         </h4>
-        <div className="space-y-5 flex flex-col items-start mx-auto">
+        <div className="space-y-2 lg:space-y-4 flex flex-col items-start mx-auto">
           <div className="flex items-center space-x-3 justify-center">
             <PhoneIcon className="text-accentColor h-7 w-7 animate-pulse" />
             <p className="dark:text-gray_300 text-md md:text-xl">
@@ -72,7 +68,7 @@ const Contact = (props: Props) => {
             {...register("message")}
             className="contact-input"
           ></textarea>
-          <button className="bg-blue_900/90 transition-all hover:bg-blue_900 text-gray_100 rounded-md font-bold py-3">
+          <button className="bg-blue_900/90 transition-all hover:bg-blue_900 text-gray_100 rounded-md font-bold py-2">
             Submit
           </button>
         </form>

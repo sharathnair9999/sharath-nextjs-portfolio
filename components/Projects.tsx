@@ -11,15 +11,13 @@ const Projects = (props: Props) => {
       <h3 className="section-title">Projects</h3>
 
       <Carousel
-        autoPlay={true}
-        thumbWidth={50}
         showStatus={false}
         showIndicators={false}
-        autoFocus={true}
-        centerMode={true}
+        autoFocus
+        centerMode
         centerSlidePercentage={100}
         className="mt-20 z-10"
-        preventMovementUntilSwipeScrollTolerance={true}
+        preventMovementUntilSwipeScrollTolerance
       >
         {projects.map((project, i) => (
           <motion.div
@@ -39,19 +37,25 @@ const Projects = (props: Props) => {
             className="shadow-xl rounded-md"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://res.cloudinary.com/sharath-media-library/image/upload/v1663439555/portfolio/social_ease_preview-removebg-preview_zlsctx.png"
-              alt="socialmedia"
-              className="max-w-xs md:max-w-sm lg:max-w-sm"
-            />
-            <div className="space-y-10 px-0 md:px-10 max-w-6xl ">
-              <h4 className="text-3xl font-semibold text-center">
+            <a
+              href="https://social-ease.vercel.app/explore"
+              target={"_blank"}
+              className="max-w-xs lg:max-w-md flex mx-auto hover:scale-105 transition"
+            >
+              <img
+                src="https://res.cloudinary.com/sharath-media-library/image/upload/v1663439555/portfolio/social_ease_preview-removebg-preview_zlsctx.png"
+                alt="socialease"
+                className="w-full"
+              />
+            </a>
+            <div className="space-y-4 mt-4 px-0 md:px-10 max-w-6xl">
+              <h4 className="text-3xl dark:text-gray_100 font-semibold text-center">
                 <span>
                   Case Study {i + 1} of {projects.length} :{" "}
                 </span>
                 Social Ease
               </h4>
-              <p className="dark:text-gray_200 text-sm lg:text-lg max-w-2xl mx-auto">
+              <p className="dark:text-gray_500 text-sm lg:text-lg max-w-2xl mx-auto">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Voluptatum facilis officiis sapiente error quos quibusdam
                 adipisci sit. Facilis distinctio ipsum eligendi fugit aut
