@@ -59,6 +59,7 @@ const WorkExperience = ({ experiences }: Props) => {
         className="mt-32 w-[22rem] md:w-9/12 lg:w-full"
         centerSlidePercentage={setExperienceCardWidth(windowDimensions.width)}
         showStatus={false}
+        showThumbs={false}
         showIndicators={false}
         preventMovementUntilSwipeScrollTolerance={true}
       >

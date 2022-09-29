@@ -30,6 +30,7 @@ const Projects = ({ projects }: Props) => {
         showIndicators={false}
         autoFocus
         centerMode
+        showThumbs={false}
         centerSlidePercentage={100}
         className="mt-20 z-10 mx-4"
         preventMovementUntilSwipeScrollTolerance
@@ -49,7 +50,7 @@ const Projects = ({ projects }: Props) => {
             }}
             viewport={{ once: true }}
             key={i}
-            className="shadow-xl rounded-md bg-[#f7f7f8] p-2 h-full"
+            className="shadow-xl rounded-md p-2 h-full"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <a

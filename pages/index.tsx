@@ -13,7 +13,6 @@ import { fetchExperiences } from "../utils/fetchExperiences";
 import { fetchSkills } from "../utils/fetchSkills";
 import { fetchSocials } from "../utils/fetchSocials";
 import { fetchProjects } from "../utils/fetchProjects";
-import { FC } from "react";
 
 interface Props {
   pageInfo: PageInfo;
@@ -23,13 +22,13 @@ interface Props {
   socials: Social[];
 }
 
-const Home: FC<Props> = ({
+const Home: NextPage<Props> = ({
   pageInfo,
   skills,
   projects,
   experiences,
   socials,
-}) => {
+}: Props) => {
   return (
     <div className="tw-bg-primary home transition-colors ease-in-out duration-500 h-screen overflow-y-scroll">
       <Head>
@@ -68,19 +67,24 @@ const Home: FC<Props> = ({
 
 export default Home;
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageInfo: PageInfo = await fetchPageInfo();
-  const experiences: Experience[] = await fetchExperiences();
-  const skills: Technology[] = await fetchSkills();
-  const socials: Social[] = await fetchSocials();
-  const projects: Project[] = await fetchProjects();
+Home.getInitialProps = async (context: any) => {
+  const { req } = context;
+  let host: string = "";
+  if (req) {
+    host = `http://${req.headers.host}`; // will give you localhost:3000
+  }
+
+  const pageInfo: PageInfo = await fetchPageInfo(host);
+  const experiences: Experience[] = await fetchExperiences(host);
+  const skills: Technology[] = await fetchSkills(host);
+  const socials: Social[] = await fetchSocials(host);
+  const projects: Project[] = await fetchProjects(host);
   return {
-    props: {
-      pageInfo,
-      experiences,
-      skills,
-      socials,
-      projects,
-    },
+    pageInfo,
+    experiences,
+    skills,
+    socials,
+    projects,
   };
 };
+// export const getStaticProps: GetStaticProps<Props> = async () => {};
