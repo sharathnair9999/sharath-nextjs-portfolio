@@ -28,7 +28,7 @@
     @apply absolute top-16 md:top-20 uppercase z-40 md:tracking-[20px] tracking-[10px] text-gray_600 text-2xl;
   }
   .tw-bg-primary {
-    @apply dark:bg-gray_900 bg-blue_50;
+    @apply dark:bg-gray_900 bg-gray_100;
   }
   .toggle-switch {
     @apply p-1 text-3xl flex justify-center items-center transition-all rounded-full;

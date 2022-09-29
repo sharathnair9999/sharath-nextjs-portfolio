@@ -45,7 +45,7 @@ const About = ({ pageInfo }: Props) => {
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.5 }}
           viewport={{ once: true }}
-          className="text-xs md:text-base md:text-left text-gray_300 text-right"
+          className="text-xs md:text-base md:text-left dark:text-gray_300 text-gray_700 text-right"
         >
           {pageInfo?.backgroundInformation}
         </motion.p>

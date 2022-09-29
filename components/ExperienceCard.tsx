@@ -10,7 +10,7 @@ type Props = {
 const ExperienceCard = ({ experience }: Props) => {
   const hello = "hello";
   return (
-    <article className="px-4 shadow-2xl md:px-5 flex h-[80%] mx-4 flex-col dark:text-gray_100 rounded-lg py-6 items-start space-y-4 bg-gray_800  overflow-y-auto">
+    <article className="px-4 shadow-2xl md:px-5 flex h-full mx-4 flex-col dark:text-gray_100 rounded-lg py-6 items-start space-y-4 dark:bg-gray_800 bg-[#ffffff] overflow-y-auto">
       <div className="flex flex-col lg:flex-row gap-3 lg:gap-6 w-full">
         <motion.img
           initial={{
@@ -55,7 +55,7 @@ const ExperienceCard = ({ experience }: Props) => {
       <p className="uppercase py-2 text-sm lg:text-lg text-gray-300">
         Started work ... - Ended.{" "}
       </p>
-      <ul className="list-disc pl-4 text-md space-y-2 ml-5 text-left h-56 md:h-60 scrollbar-thumb-blue_00 scrollbar-track-gray_700 overflow-y-auto scrollbar-track-rounded-sm scrollbar-thumb-rounded-sm scrollbar-thin">
+      <ul className="list-disc pl-4 text-md space-y-2 ml-5 text-left h-56 md:h-60 scrollbar-thumb-blue_00 scrollbar-track-gray_200 dark:scrollbar-track-gray_700 overflow-y-auto scrollbar-track-rounded-sm scrollbar-thumb-rounded-sm scrollbar-thin">
         {experience?.points
           ?.filter((point) => point.trim())
           .map((point) => (

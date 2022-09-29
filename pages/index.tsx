@@ -1,5 +1,4 @@
 import type { GetStaticProps, NextPage } from "next";
-import dynamic from "next/dynamic";
 import Head from "next/head";
 import About from "../components/About";
 import Contact from "../components/Contact";
@@ -14,22 +13,23 @@ import { fetchExperiences } from "../utils/fetchExperiences";
 import { fetchSkills } from "../utils/fetchSkills";
 import { fetchSocials } from "../utils/fetchSocials";
 import { fetchProjects } from "../utils/fetchProjects";
+import { FC } from "react";
 
-type Props = {
+interface Props {
   pageInfo: PageInfo;
   experiences: Experience[];
   skills: Technology[];
   projects: Project[];
   socials: Social[];
-};
+}
 
-const Home: NextPage = ({
+const Home: FC<Props> = ({
   pageInfo,
   skills,
   projects,
   experiences,
   socials,
-}: Props) => {
+}) => {
   return (
     <div className="tw-bg-primary home transition-colors ease-in-out duration-500 h-screen overflow-y-scroll">
       <Head>
@@ -82,6 +82,5 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       socials,
       projects,
     },
-    revalidate: 20,
   };
 };

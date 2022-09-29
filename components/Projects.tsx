@@ -9,8 +9,6 @@ type Props = {
 };
 
 const Projects = ({ projects }: Props) => {
-  console.log({ projects });
-
   const dateSortProjects = (project1: Project, project2: Project) => {
     const d1 = new Date(project1._createdAt);
     const d2 = new Date(project2._createdAt);
@@ -51,7 +49,7 @@ const Projects = ({ projects }: Props) => {
             }}
             viewport={{ once: true }}
             key={i}
-            className="shadow-xl rounded-md"
+            className="shadow-xl rounded-md bg-[#f7f7f8] p-2 h-full"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <a

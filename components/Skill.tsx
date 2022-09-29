@@ -10,7 +10,7 @@ type Props = {
 
 const Skill = ({ directionLeft, skill }: Props) => {
   return (
-    <div className="p-1 hover:bg-gray_800/30 shadow-md shadow-gray_800/80 rounded-2xl transition-colors duration-300 relative flex cursor-pointer">
+    <div className="p-1 hover:bg-gray_800/30 shadow-md bg-white/70 dark:bg-transparent shadow-gray_800/80 rounded-2xl transition-colors duration-300 relative flex cursor-pointer">
       <motion.img
         initial={{ x: directionLeft ? -100 : 100, opacity: 0 }}
         whileInView={{ opacity: 1, x: 0 }}
