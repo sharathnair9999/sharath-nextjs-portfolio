@@ -13,10 +13,10 @@
 
 @layer components {
   .home {
-    @apply scrollbar-thin dark:scrollbar-track-gray_600 scrollbar-track-gray_200 scrollbar-thumb-accentColor/70 hover:scrollbar-thumb-accentColor transition-colors scrollbar-track-rounded-md scrollbar-thumb-rounded-md;
+    @apply scrollbar-thin dark:scrollbar-track-gray_600 scrollbar-track-gray_200 scrollbar-thumb-blue_600/70 hover:scrollbar-thumb-blue_600 transition-colors scrollbar-track-rounded-md scrollbar-thumb-rounded-md;
   }
   .heroButton {
-    @apply px-6 py-2 border border-gray_900 font-bold rounded-full uppercase text-xs tracking-widest text-gray_600 transition-all hover:text-accentColor/40 hover:border-accentColor/40;
+    @apply px-6 py-2  border-gray_600 dark:border-gray-500 font-bold rounded-full uppercase text-sm tracking-widest text-gray_600 dark:text-gray_500 transition-colors duration-300 border hover:text-blue_300/70 hover:border-blue_300/70;
   }
   .contact-input {
     @apply outline-none bg-gray_300/10 rounded-md border-b dark:text-blue_100 px-2 py-1 md:py-2 border-blue_900  text-blue_900 placeholder-gray_500 transition-all focus:border-blue_300/40 hover:border-blue_300/40 focus:text-blue_900/40;
@@ -25,10 +25,10 @@
     @apply rounded-full border absolute mt-52;
   }
   .section-title {
-    @apply absolute top-16 md:top-20 uppercase z-[100] md:tracking-[20px] tracking-[10px] text-gray_600 text-2xl;
+    @apply absolute top-16 md:top-20 uppercase z-40 md:tracking-[20px] tracking-[10px] text-gray_600 text-2xl;
   }
   .tw-bg-primary {
-    @apply dark:bg-gray_900 bg-accentColor/30;
+    @apply dark:bg-gray_900 bg-blue_50;
   }
   .toggle-switch {
     @apply p-1 text-3xl flex justify-center items-center transition-all rounded-full;
@@ -63,7 +63,7 @@
   border-radius: 50% !important;
   height: 5rem !important;
   width: 5rem !important;
-  background-color: hsl(0, 0%, 14%);
+  background-color: hsl(0, 0%, 15%);
 }
 @media screen and (min-width: 768px) {
   .exp-company {

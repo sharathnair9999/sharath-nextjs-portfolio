@@ -3,10 +3,13 @@ import { motion } from "framer-motion";
 import ExperienceCard from "./ExperienceCard";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import { Experience } from "../typings";
 
-type Props = {};
+type Props = {
+  experiences: Experience[];
+};
 
-const WorkExperience = (props: Props) => {
+const WorkExperience = ({ experiences }: Props) => {
   const [windowDimensions, setWindowDimensions] = useState({
     width: 0,
     height: 0,
@@ -27,7 +30,19 @@ const WorkExperience = (props: Props) => {
       return () => window.removeEventListener("resize", handleResize);
     }
   }, [windowDimensions.width, windowDimensions.height]);
-  console.log(windowDimensions);
+
+  const setExperienceCardWidth = (width: number) => {
+    if (width < 600) {
+      return 100;
+    }
+    if (width >= 500 && width < 900) {
+      return 100;
+    }
+    if (width >= 900) {
+      return 70;
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -38,19 +53,18 @@ const WorkExperience = (props: Props) => {
       <h3 className="section-title">Experience</h3>
       {/* <div className="flex max-h-screen space-x-5 overflow-x-scroll w-full mt-10 py-10 px-2 hidden-scrollbar snap-x snap-mandatory"> */}
       <Carousel
-        autoPlay={true}
         swipeScrollTolerance={20}
         autoFocus={true}
         centerMode={true}
-        className="mt-32 w-80 lg:w-full"
-        centerSlidePercentage={windowDimensions.width > 768 ? 60 : 95}
+        className="mt-32 w-[22rem] md:w-9/12 lg:w-full"
+        centerSlidePercentage={setExperienceCardWidth(windowDimensions.width)}
         showStatus={false}
         showIndicators={false}
         preventMovementUntilSwipeScrollTolerance={true}
       >
-        <ExperienceCard />
-        <ExperienceCard />
-        <ExperienceCard />
+        {experiences?.map((experience) => (
+          <ExperienceCard key={experience._id} experience={experience} />
+        ))}
       </Carousel>
       {/* </div> */}
     </motion.div>

@@ -1,15 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
-type Props = {};
+import { PageInfo } from "../typings";
+import { urlFor } from "../sanity";
+type Props = {
+  pageInfo: PageInfo;
+};
 
-const About = (props: Props) => {
+const About = ({ pageInfo }: Props) => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1.5 }}
-      className="h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-center md:justify-evenly space-y-5  mx-auto items-center"
-    >
+    <div className="h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-center md:justify-evenly space-y-5  mx-auto items-center">
       <h3 className="section-title">About</h3>
       <motion.img
         initial={{
@@ -25,24 +24,33 @@ const About = (props: Props) => {
         }}
         className="w-48 h-48 -mb-30 md:mb-0 mt-4 flex-shrink-0 rounded-full md:rounded-lg md:w-64 md:h-80  object-cover"
         viewport={{ once: true }}
-        src="https://res.cloudinary.com/sharath-media-library/image/upload/v1663415197/portfolio/sharath_x9gvra.png"
+        src={urlFor(pageInfo?.profilePic).url()}
       />
       <div className="space-y-4 md:space-y-6 px-0 md:px-10">
-        <h4 className="text-2xl lg:text-3xl font-semibold dark:text-gray_100">
+        <motion.h4
+          initial={{ y: 200, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="text-2xl lg:text-3xl font-semibold dark:text-gray_100"
+        >
           A{" "}
           <span className="underline underline-offset-[6px] decoration-blue_600">
             little
           </span>{" "}
           about me
-        </h4>
-        <p className="text-xs md:text-base md:text-left text-gray_300 text-right">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti
-          tenetur sunt nulla dolores aspernatur hic officia, ipsum nisi
-          excepturi ducimus, totam a? Velit deserunt veniam, praesentium vero
-          incidunt molestiae accusantium.
-        </p>
+        </motion.h4>
+        <motion.p
+          initial={{ y: 200, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          viewport={{ once: true }}
+          className="text-xs md:text-base md:text-left text-gray_300 text-right"
+        >
+          {pageInfo?.backgroundInformation}
+        </motion.p>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { SocialIcon } from "react-social-icons";
-type Props = {};
+type Props = { socials: Social[] };
 import { motion } from "framer-motion";
-import { socials } from "../constants";
-import { MdOutlineLightMode } from "react-icons/md";
-import { MdDarkMode } from "react-icons/md";
-export default function Header({}: Props) {
+import { SunIcon } from "@heroicons/react/24/outline";
+import { MoonIcon } from "@heroicons/react/24/solid";
+import { Social } from "../typings";
+export default function Header({ socials }: Props) {
   const [isDark, setIsDark] = useState<null | boolean>(null);
-
+  const fgColor = isDark ? "hsl(0, 0%, 40%)" : "hsl(0, 0%, 30%)";
   useEffect(() => {
     if (typeof window !== undefined) {
       ((theme = "dark") => {
@@ -29,7 +29,7 @@ export default function Header({}: Props) {
     }
   };
   return (
-    <header className="sticky top-0 flex items-center justify-center max-w-full px-4 lg:px-10 py-1 lg:py-2 z-30  md:px-20 ">
+    <header className="sticky top-0 flex items-center bg-inherit   justify-center z-50 max-w-full px-4 lg:px-10 py-1 lg:py-2  md:px-20 ">
       <motion.div
         initial={{
           x: -500,
@@ -47,13 +47,13 @@ export default function Header({}: Props) {
         className="flex items-center mr-auto"
       >
         {/* Social Icons */}
-        {socials.map(({ url, fgColor, bgColor, label }, id) => (
+        {socials.map((social) => (
           <SocialIcon
-            key={id}
-            label={label}
-            url={url}
+            key={social._id}
+            label={social.title}
+            url={social.url}
             fgColor={fgColor}
-            bgColor={bgColor}
+            bgColor="transparent"
           />
         ))}
       </motion.div>
@@ -76,12 +76,15 @@ export default function Header({}: Props) {
         <SocialIcon
           className="cursor-pointer"
           network="email"
-          fgColor="gray"
+          fgColor={fgColor}
           bgColor="transparent"
         />
-        <p className="uppercase hidden md:inline-flex text-sm text-gray-700 dark:text-gray-400">
+        <a
+          href="#contact"
+          className="uppercase hidden md:inline-flex text-sm text-gray-700 dark:text-gray-400"
+        >
           Get In Touch
-        </p>
+        </a>
       </motion.div>
       <motion.button
         initial={{ opacity: 0, scale: 0 }}
@@ -97,7 +100,7 @@ export default function Header({}: Props) {
             animate={{ opacity: 1, x: [-100, 20, 0] }}
             transition={{ duration: 1.5 }}
           >
-            <MdOutlineLightMode className="toggle-switch text-gray-400 hover:bg-gray-700 " />
+            <SunIcon className="h-8 w-8 p-1 rounded-full shadow-md shadow-gray_100/30 border border-gray_500/30 text-gray-400 hover:bg-gray_800 " />
           </motion.div>
         ) : (
           <motion.div
@@ -105,7 +108,7 @@ export default function Header({}: Props) {
             animate={{ opacity: 1, x: [-100, 20, 0] }}
             transition={{ duration: 1.5 }}
           >
-            <MdDarkMode className="toggle-switch hover:bg-slate-200 " />
+            <MoonIcon className="h-8 w-8 p-1 rounded-full hover:bg-gray_100 border shadow-md shadow-gray_500 border-gray_500/30" />
           </motion.div>
         )}
       </motion.button>
