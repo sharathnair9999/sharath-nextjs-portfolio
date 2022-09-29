@@ -22,13 +22,13 @@ interface Props {
   socials: Social[];
 }
 
-const Home: NextPage<Props> = ({
+const Home = ({
   pageInfo,
   skills,
   projects,
   experiences,
   socials,
-}: Props) => {
+}: Props): JSX.Element => {
   return (
     <div className="tw-bg-primary home transition-colors ease-in-out duration-500 h-screen overflow-y-scroll">
       <Head>
