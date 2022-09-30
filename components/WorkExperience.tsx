@@ -48,7 +48,7 @@ const WorkExperience = ({ experiences }: Props) => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="h-screen  flex relative flex-col text-center md:text-left md:flex-row  px-10 justify-evenly  mx-auto items-center"
+      className="flex relative flex-col text-center md:text-left px-10 pt-20 justify-evenly mx-auto items-center"
     >
       <h3 className="section-title">Experience</h3>
       {/* <div className="flex max-h-screen space-x-5 overflow-x-scroll w-full mt-10 py-10 px-2 hidden-scrollbar snap-x snap-mandatory"> */}
@@ -56,7 +56,7 @@ const WorkExperience = ({ experiences }: Props) => {
         swipeScrollTolerance={20}
         autoFocus={true}
         centerMode={true}
-        className="mt-32 w-[22rem] md:w-9/12 lg:w-full"
+        className="w-[22rem] md:w-9/12  overflow-hidden lg:w-full"
         centerSlidePercentage={setExperienceCardWidth(windowDimensions.width)}
         showStatus={false}
         showThumbs={false}

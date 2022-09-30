@@ -40,7 +40,7 @@ const Hero = ({ pageInfo }: Props) => {
           <span className="italic dark:text-white">{text}</span>
           <Cursor cursorColor="#4e87f9" />
         </h1>
-        <div className="flex flex-wrap justify-center items-center gap-3 mt-3">
+        <div className="flex flex-wrap justify-center items-center gap-2 md:gap-3 mt-3">
           <Link href={"#about"}>
             <button className="heroButton">About</button>
           </Link>

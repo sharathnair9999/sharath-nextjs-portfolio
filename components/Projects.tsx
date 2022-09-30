@@ -22,7 +22,7 @@ const Projects = ({ projects }: Props) => {
   };
 
   return (
-    <div className="h-screen relative max-w-full overflow-hidden text-left flex flex-col md:flex-row justify-evenly mx-auto items-center z-20">
+    <div className="h-screen relative max-w-full overflow-hidden text-left flex flex-col justify-center mx-auto items-center z-20">
       <h3 className="section-title">Projects</h3>
 
       <Carousel
@@ -56,14 +56,13 @@ const Projects = ({ projects }: Props) => {
             <a
               href={project.linkToBuild}
               target={"_blank"}
-              className="max-w-xs relative lg:max-w-md flex mx-auto hover:scale-105 transition"
+              className="max-w-xs relative  flex mx-auto hover:scale-105 transition"
             >
               <img
                 src={urlFor(project.image).url()}
                 alt={project.title}
-                className="w-full rounded-md"
+                className=" rounded-md"
               />
-              <div className="absolute w-full h-full hover:bg-gray_900/10 rounded-lg hover:shadow-md transition-colors z-10 top-0 left-0"></div>
             </a>
             <div className="space-y-4 mt-4 px-0 md:px-10 mx-auto max-w-6xl">
               <h4 className="text-3xl dark:text-gray_100 font-semibold text-center">
@@ -76,7 +75,7 @@ const Projects = ({ projects }: Props) => {
           </motion.div>
         ))}
       </Carousel>
-      <div className="w-full absolute top=[30%] left-0 bg-blue_500/20 h-[500px] -skew-y-12" />
+      <div className="w-full absolute top=[30%] left-0 bg-blue_800/30 h-[500px] -skew-y-12" />
     </div>
   );
 };

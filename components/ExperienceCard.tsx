@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { Experience } from "../typings";
 import { urlFor } from "../sanity";
@@ -8,9 +8,28 @@ type Props = {
 };
 
 const ExperienceCard = ({ experience }: Props) => {
-  const hello = "hello";
+  const getReadableDate = (date: string) => {
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "July",
+      "Aug",
+      "Sept",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    const d = new Date(date);
+    const month = d.getMonth();
+    const year = d.getFullYear();
+    return `${months[month]}. ${year}`;
+  };
   return (
-    <article className="px-4 shadow-2xl md:px-5 flex h-full mx-4 flex-col dark:text-gray_100 rounded-lg py-6 items-start space-y-4 dark:bg-gray_800 bg-[#ffffff] overflow-y-auto">
+    <article className="px-4 shadow-2xl  flex h-[80%] mx-4 md:mx-10 flex-col dark:text-gray_100 rounded-lg py-6 items-start space-y-4 dark:bg-gray_800 max-w-6xl bg-gray_50 overflow-y-auto mt-10">
       <div className="flex flex-col lg:flex-row gap-3 lg:gap-6 w-full">
         <motion.img
           initial={{
@@ -23,20 +42,27 @@ const ExperienceCard = ({ experience }: Props) => {
             y: 0,
           }}
           viewport={{ once: true }}
-          className="exp-company rounded-full w-24 h-24 md:w-32 md:h-32 object-cover mx-auto lg:mx-1 lg:text-left"
+          className="exp-company rounded-full w-16 h-16 md:w-32 md:h-32 object-cover mx-auto lg:mx-1 lg:text-left"
           src={urlFor(experience?.companyImage).url()}
           alt={experience?.company}
         />
+
         <div className=" flex flex-col items-start space-y-3">
-          <h4 className="text-lg lg:text-3xl font-light">
+          <h4 className="text-lg lg:text-3xl font-normal">
             {experience?.jobTitle}
           </h4>
           <p className="font-bold text-md lg:text-lg my-2">
             {experience?.company}
           </p>
-          <span className="text-xs lg:text-md pt-2 font-light">Tech Stack</span>
+          <p className="text-sm lg:text-lg text-gray-300">{`${getReadableDate(
+            experience?.dateStarted
+          )} - ${
+            experience?.isCurrentlyWorkingHere
+              ? "Till Date"
+              : getReadableDate(experience.dateEnded)
+          }`}</p>
           <div className="flex justify-start items-center gap-3">
-            {experience.technologies.map((tech) => (
+            {experience?.technologies?.map((tech) => (
               <div
                 className="cursor-pointer rounded-2xl shadow-gray_900 hover:scale-105 transition-all hover:bg-gray_700/20 shadow-sm hover:shadow-md"
                 key={tech._id}
@@ -44,7 +70,7 @@ const ExperienceCard = ({ experience }: Props) => {
                 <img
                   src={urlFor(tech.image).url()}
                   alt={tech.title}
-                  className={`h-10 rounded-2xl w-10 lg:w-14 lg:h-14 p-px lg:p-1 `}
+                  className={`h-8 rounded-2xl w-8 lg:w-14 lg:h-14 p-px lg:p-1 `}
                 />
               </div>
             ))}
@@ -52,10 +78,7 @@ const ExperienceCard = ({ experience }: Props) => {
         </div>
       </div>
 
-      <p className="uppercase py-2 text-sm lg:text-lg text-gray-300">
-        Started work ... - Ended.{" "}
-      </p>
-      <ul className="list-disc pl-4 text-md space-y-2 ml-5 text-left h-56 md:h-60 scrollbar-thumb-blue_00 scrollbar-track-gray_200 dark:scrollbar-track-gray_700 overflow-y-auto scrollbar-track-rounded-sm scrollbar-thumb-rounded-sm scrollbar-thin">
+      <ul className="list-disc pl-4 px-3 exp-list text-xs md:text-base space-y-2 ml-5 text-left h-56 md:h-60  dark:scrollbar-thumb-blue_700 scrollbar-thumb-gray_300 overflow-y-auto scrollbar-track-transparent scrollbar-thumb-rounded-md scrollbar-thin">
         {experience?.points
           ?.filter((point) => point.trim())
           .map((point) => (

@@ -1,4 +1,3 @@
-import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import About from "../components/About";
 import Contact from "../components/Contact";
@@ -13,6 +12,11 @@ import { fetchExperiences } from "../utils/fetchExperiences";
 import { fetchSkills } from "../utils/fetchSkills";
 import { fetchSocials } from "../utils/fetchSocials";
 import { fetchProjects } from "../utils/fetchProjects";
+import {
+  ArrowDownCircleIcon,
+  ArrowUpCircleIcon,
+} from "@heroicons/react/24/solid";
+import { useRef } from "react";
 
 interface Props {
   pageInfo: PageInfo;
@@ -29,8 +33,16 @@ const Home = ({
   experiences,
   socials,
 }: Props): JSX.Element => {
+  const ref = useRef<HTMLDivElement>(null);
+  const scrollToTop = () => {
+    ref.current &&
+      ref.current.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
   return (
-    <div className="tw-bg-primary home transition-colors ease-in-out duration-500 h-screen overflow-y-scroll">
+    <div
+      ref={ref}
+      className="relative tw-bg-primary home transition-colors ease-in-out duration-500 h-screen overflow-y-scroll"
+    >
       <Head>
         <title>{pageInfo?.name}</title>
       </Head>
@@ -61,6 +73,12 @@ const Home = ({
       <section id="contact">
         <Contact />
       </section>
+      <div
+        onClick={scrollToTop}
+        className="w-10 h-10 rounded-full animate-bounce  sticky z-[100] bottom-5 cursor-pointer shadow-md left-[85%] lg:left-[95%]"
+      >
+        <ArrowUpCircleIcon className="text-gray_800 dark:text-gray_200" />
+      </div>
     </div>
   );
 };

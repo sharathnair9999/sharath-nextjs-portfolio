@@ -35,7 +35,7 @@ const Contact = (props: Props) => {
   };
   return (
     <>
-      <div className="h-screen relative flex flex-col text-center md:text-left md:flex-row px-10 justify-evenly mx-auto items-center">
+      <div className="h-screen relative flex flex-col text-center md:text-left  px-10 justify-evenly mx-auto items-center">
         <h3 className="section-title">Contact</h3>
         <div className="flex flex-col space-y-8 mt-20 md:mt-12">
           <h4 className="dark:text-gray_300 text-lg md:text-3xl font-semibold text-center">

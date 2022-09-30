@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 type Props = {};
 
 const BackgroundCircles = (props: Props) => {
-  const dimensions = [200, 300, 500, 650, 800];
   return (
     <motion.div
       initial={{
@@ -18,25 +17,11 @@ const BackgroundCircles = (props: Props) => {
       transition={{ duration: 2.5 }}
       className="relative flex justify-center items-center "
     >
-      {dimensions.map((dimension, id) => {
-        return (
-          <div
-            className={`${
-              id === 3
-                ? "border-blue_600 animate-pulse"
-                : "dark:border-gray_800 border-gray_800/20"
-            } ${
-              id === 0 && "animate-ping"
-            } common-hero-circle h-[${dimension}px] w-[${dimension}px] `}
-            key={id}
-          ></div>
-        );
-      })}
-      {/* <div className="border border-heroCircle absolute mt-52 h-[200px] w-[200px] rounded-full"></div>
-      <div className="border border-heroCircle absolute mt-52 h-[300px] w-[300px] rounded-full"></div>
-      <div className="border border-heroCircle absolute mt-52 h-[500px] w-[500px] rounded-full"></div>
-      <div className="border border-heroCircle absolute mt-52 h-[650px] w-[650px] rounded-full"></div>
-      <div className="border border-heroCircle absolute mt-52 h-[800px] w-[800px] rounded-full"></div> */}
+      <div className="border animate-ping border-gray_800/20 transition-colors duration-500 dark:border-gray_800 absolute mt-52 h-[150px] md:h-[200px] md:w-[200px] w-[150px] rounded-full"></div>
+      <div className="border border-gray_800/20 transition-colors duration-500 dark:border-gray_800 absolute mt-52 md:h-[300px] h-[225px] md:w-[300px] w-[225px]  rounded-full"></div>
+      <div className="border border-gray_800/20 transition-colors duration-500 dark:border-gray_800 absolute mt-52 md:h-[500px] md:w-[500px] h-[375px] w-[375px] rounded-full"></div>
+      <div className="border border-blue_600 absolute mt-52 md:h-[650px] md:w-[650px] h-[487px] w-[487px] rounded-full animate-pulse"></div>
+      <div className="border border-gray_800/20 transition-colors duration-500 dark:border-gray_800 absolute mt-52 md:h-[800px] md:w-[800px] h-[600px] w-[600px] rounded-full"></div>
     </motion.div>
   );
 };

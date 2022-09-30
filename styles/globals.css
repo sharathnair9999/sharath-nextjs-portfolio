@@ -13,10 +13,10 @@
 
 @layer components {
   .home {
-    @apply scrollbar-thin dark:scrollbar-track-gray_600 scrollbar-track-gray_200 scrollbar-thumb-blue_600/70 hover:scrollbar-thumb-blue_600 transition-colors scrollbar-track-rounded-md scrollbar-thumb-rounded-md;
+    @apply scrollbar-thin  lg:scrollbar-track-transparent lg:scrollbar-thumb-blue_600/80 lg:hover:scrollbar-thumb-blue_600 transition-colors scrollbar-track-rounded-md scrollbar-thumb-rounded-md;
   }
   .heroButton {
-    @apply px-6 py-2  border-gray_600 dark:border-gray-500 font-bold rounded-full uppercase text-sm tracking-widest text-gray_600 dark:text-gray_500 transition-colors duration-300 border hover:text-blue_300/70 hover:border-blue_300/70;
+    @apply px-3 py-1 md:px-5 dark:bg-gray_900 md:dark:bg-inherit md:hover:shadow-md  dark:hover:shadow-blue_800/60 md:py-2 hover:-translate-y-[2px] border-gray_600 dark:border-gray-500 font-semibold rounded-full uppercase text-xs md:text-sm tracking-widest text-gray_600  dark:text-gray_500 transition-all duration-300 border hover:dark:text-blue_300/70 hover:dark:border-blue_300/70;
   }
   .contact-input {
     @apply outline-none bg-gray_300/10 rounded-md border-b dark:text-blue_100 px-2 py-1 md:py-2 border-blue_900  text-blue_900 placeholder-gray_500 transition-all focus:border-blue_300/40 hover:border-blue_300/40 focus:text-blue_900/40;
@@ -25,7 +25,7 @@
     @apply rounded-full border absolute mt-52;
   }
   .section-title {
-    @apply absolute top-16 md:top-20 uppercase z-40 md:tracking-[20px] tracking-[10px] text-gray_600 text-2xl;
+    @apply uppercase z-40 md:tracking-[20px] tracking-[10px] text-gray_600 text-2xl;
   }
   .tw-bg-primary {
     @apply dark:bg-gray_900 bg-gray_100;
@@ -70,4 +70,8 @@
     height: 10rem !important;
     width: 10rem !important;
   }
+}
+
+.exp-list {
+  margin: 0;
 }
