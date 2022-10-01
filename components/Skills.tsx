@@ -28,7 +28,8 @@ const Skills = ({ skills }: Props) => {
         ))}
       </div>
       <motion.div
-        initial={{ y: 50, opacity: 0 }}
+        key={selectedSkill}
+        initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
         className="h-5 flex flex-col gap-3 text-center"
