@@ -35,9 +35,9 @@ const Contact = (props: Props) => {
   };
   return (
     <>
-      <div className="h-[calc(100vh-6rem)] relative flex flex-col text-center md:text-left px-10 justify-start gap-5 md:justify-evenly mx-auto items-center">
+      <div className="h-screen relative flex flex-col text-center md:text-left px-10 justify-center gap-5 md:justify-evenly mx-auto items-center">
         <h3 className="section-title">Contact</h3>
-        <div className="flex flex-col space-y-8 mt-20 md:mt-12">
+        <div className="flex flex-col space-y-8 mt-5">
           <h4 className="dark:text-gray_300 text-lg md:text-3xl font-semibold text-center">
             Got something for me?{" "}
             <span className="underline decoration-blue_700 underline-offset-4">
