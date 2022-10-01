@@ -51,7 +51,7 @@ const Projects = ({ projects }: Props) => {
             }}
             viewport={{ once: true }}
             key={i}
-            className="shadow-xl w-7/12  mx-auto rounded-md px-2 h-full"
+            className="shadow-xl max-w-6xl min-w-fit lg:w-10/12 mx-auto rounded-md px-2 h-full"
           >
             <a
               href={project.linkToBuild}

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import About from "../components/About";
 import Contact from "../components/Contact";
+import { motion, useScroll, useSpring } from "framer-motion";
 import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
@@ -56,48 +57,61 @@ const Home = ({
     ref.current &&
       ref.current.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
   return (
-    <div
-      ref={ref}
-      className="tw-bg-primary home transition-colors ease-in-out duration-500 h-screen overflow-y-scroll"
-    >
-      <Head>
-        <title>{pageInfo?.name}</title>
-      </Head>
-      {/* Header */}
-      <Header isDark={isDark} switchTheme={toggleDarkMode} socials={socials} />
-      {/* Hero */}
-      <section id="hero">
-        <Hero pageInfo={pageInfo} />
-      </section>
-      {/* About */}
-      <section id="about">
-        <About pageInfo={pageInfo} />
-      </section>
-      {/* Experience */}
-      <section id="experience">
-        <WorkExperience experiences={experiences} />
-      </section>
-      {/* Skills */}
-      <section id="skills">
-        <Skills skills={skills} />
-      </section>
-      {/* Projects */}
-      <section id="projects">
-        <Projects projects={projects} />
-      </section>
-
-      {/* Contact Me */}
-      <section id="contact">
-        <Contact />
-      </section>
+    <>
+      <motion.div style={{ scaleX }} className="progress-bar"></motion.div>
       <div
-        onClick={scrollToTop}
-        className="w-10 h-10 rounded-full animate-bounce sticky z-[100] bottom-12 md:bottom-10 cursor-pointer shadow-md left-[85%] lg:left-[95%]"
+        ref={ref}
+        className="relative tw-bg-primary home transition-colors ease-in-out duration-500 overflow-y-scroll"
       >
-        <ArrowUpCircleIcon className="text-gray_800 dark:text-gray_200" />
+        <Head>
+          <title>{pageInfo?.name}</title>
+        </Head>
+        {/* Header */}
+        <Header
+          isDark={isDark}
+          switchTheme={toggleDarkMode}
+          socials={socials}
+        />
+        {/* Hero */}
+        <section id="hero">
+          <Hero pageInfo={pageInfo} />
+        </section>
+        {/* About */}
+        <section id="about">
+          <About pageInfo={pageInfo} />
+        </section>
+        {/* Experience */}
+        <section id="experience">
+          <WorkExperience experiences={experiences} />
+        </section>
+        {/* Skills */}
+        <section id="skills">
+          <Skills skills={skills} />
+        </section>
+        {/* Projects */}
+        <section id="projects">
+          <Projects projects={projects} />
+        </section>
+
+        {/* Contact Me */}
+        <section id="contact">
+          <Contact />
+        </section>
+        <div
+          onClick={scrollToTop}
+          className="w-10 h-10 rounded-full animate-bounce fixed z-[100] bottom-10 md:bottom-10 cursor-pointer shadow-md left-[85%] lg:left-[90%]"
+        >
+          <ArrowUpCircleIcon className="text-gray_800 bg-gray_200 rounded-full dark:text-gray_200" />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
