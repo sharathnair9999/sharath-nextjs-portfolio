@@ -3,13 +3,15 @@ import { motion } from "framer-motion";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import { Project } from "../typings";
-import { urlFor } from "../sanity";
+import { setExperienceCardWidth, urlFor } from "../sanity";
 import { SocialIcon } from "react-social-icons";
+import useWindowDimensions from "../custom-hooks/useWindowDimensions";
 type Props = {
   projects: Project[];
 };
 
 const Projects = ({ projects }: Props) => {
+  const dimensions = useWindowDimensions(null);
   const dateSortProjects = (project1: Project, project2: Project) => {
     const d1 = new Date(project1._createdAt);
     const d2 = new Date(project2._createdAt);
@@ -23,17 +25,18 @@ const Projects = ({ projects }: Props) => {
   };
 
   return (
-    <div className="h-screen relative max-w-full overflow-hidden text-left flex flex-col justify-center mx-auto items-center z-20">
+    <div className="h-screen w-full relative overflow-hidden text-left flex flex-col justify-center mx-auto items-center z-20">
       <h3 className="section-title">Projects</h3>
 
       <Carousel
         showStatus={false}
         showIndicators={false}
+        // emulateTouch
         autoFocus
         centerMode
         showThumbs={false}
-        centerSlidePercentage={100}
-        className="mt-20 z-10 mx-4 max-w-7xl"
+        centerSlidePercentage={setExperienceCardWidth(dimensions?.width)}
+        className="mt-20 z-10 w-full overflow-hidden"
         preventMovementUntilSwipeScrollTolerance
       >
         {projects?.sort(dateSortProjects).map((project, i) => (
@@ -51,7 +54,7 @@ const Projects = ({ projects }: Props) => {
             }}
             viewport={{ once: true }}
             key={i}
-            className="shadow-xl max-w-6xl min-w-fit lg:w-10/12 mx-auto rounded-md px-2 h-full"
+            className="shadow-2xl  mx-3  my-2 rounded-lg px-2 py-10 h-[90%]"
           >
             <a
               href={project.linkToBuild}
@@ -64,7 +67,7 @@ const Projects = ({ projects }: Props) => {
                 className=" rounded-md"
               />
             </a>
-            <div className="space-y-4 mt-4 mx-auto max-w-6xl">
+            <div className="space-y-4 mt-4 mx-auto ">
               <p className="flex justify-center items-center gap-4">
                 <a
                   href={project?.linkToBuild}
@@ -85,14 +88,14 @@ const Projects = ({ projects }: Props) => {
                   />
                 </a>
               </p>
-              <p className="dark:text-gray_400 font-medium text-justify text-sm lg:text-lg max-w-2xl mx-auto">
+              <p className="dark:text-gray_200 font-normal text-gray_900 text-justify text-sm lg:text-lg max-w-2xl mx-auto">
                 {project?.summary}
               </p>
             </div>
           </motion.div>
         ))}
       </Carousel>
-      <div className="w-full absolute top-[40%] -translate-y-1/2 lg:top-[50%] left-0 bg-blue_800/30 h-[300px] lg:h-[500px] -skew-y-12 " />
+      <div className="w-full absolute top-[50%] -translate-y-1/2 left-0 bg-blue_500/30 dark:bg-blue_500/20 h-[300px] lg:h-[500px] -skew-y-12 " />
     </div>
   );
 };

@@ -11,3 +11,16 @@ export const sanityClient = createClient(config);
 
 export const urlFor = (source: any) =>
   createImageUrlBuilder(config as any).image(source);
+
+export const setExperienceCardWidth = (width: number | undefined) => {
+  if (!width) return;
+  if (width < 600) {
+    return 100;
+  }
+  if (width >= 500 && width < 900) {
+    return 100;
+  }
+  if (width >= 900) {
+    return 70;
+  }
+};

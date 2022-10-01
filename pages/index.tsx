@@ -15,6 +15,7 @@ import { fetchSocials } from "../utils/fetchSocials";
 import { fetchProjects } from "../utils/fetchProjects";
 import { ArrowUpCircleIcon } from "@heroicons/react/24/solid";
 import { useEffect, useRef, useState } from "react";
+import { AppContext } from "next/app";
 
 interface Props {
   pageInfo: PageInfo;
@@ -54,8 +55,9 @@ const Home = ({
   };
   const ref = useRef<HTMLDivElement>(null);
   const scrollToTop = () => {
-    ref.current &&
-      ref.current.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    if (typeof window !== undefined) {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    }
   };
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -65,14 +67,15 @@ const Home = ({
   });
   return (
     <>
-      <motion.div style={{ scaleX }} className="progress-bar"></motion.div>
-      <div
+      <Head>
+        <title>{pageInfo?.name}</title>
+      </Head>
+      <motion.div
         ref={ref}
-        className="relative tw-bg-primary home transition-colors ease-in-out duration-500 overflow-y-scroll"
-      >
-        <Head>
-          <title>{pageInfo?.name}</title>
-        </Head>
+        style={{ scaleX }}
+        className="progress-bar"
+      ></motion.div>
+      <div className="relative tw-bg-primary home transition-colors ease-in-out duration-500 overflow-y-scroll">
         {/* Header */}
         <Header
           isDark={isDark}
@@ -108,7 +111,7 @@ const Home = ({
           onClick={scrollToTop}
           className="w-10 h-10 rounded-full animate-bounce fixed z-[100] bottom-10 md:bottom-10 cursor-pointer shadow-md left-[85%] lg:left-[90%]"
         >
-          <ArrowUpCircleIcon className="text-gray_800 bg-gray_200 rounded-full dark:text-gray_200" />
+          <ArrowUpCircleIcon className="text-gray_800 rounded-full dark:text-gray_200" />
         </div>
       </div>
     </>
@@ -117,8 +120,7 @@ const Home = ({
 
 export default Home;
 
-Home.getInitialProps = async (context: any) => {
-  const { req } = context;
+Home.getInitialProps = async ({ req }: AppContext) => {
   let host: string = "";
   if (req) {
     host = `http://${req.headers.host}`; // will give you localhost:3000

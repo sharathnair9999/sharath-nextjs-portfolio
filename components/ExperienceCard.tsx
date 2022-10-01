@@ -29,7 +29,7 @@ const ExperienceCard = ({ experience }: Props) => {
     return `${months[month]}. ${year}`;
   };
   return (
-    <article className="px-4 shadow-2xl  flex h-[80%] mx-4 md:mx-10 flex-col dark:text-gray_100 rounded-lg py-6 items-start space-y-4 dark:bg-gray_800 max-w-6xl bg-gray_50 overflow-y-auto mt-10">
+    <article className="px-4 shadow-2xl flex h-[80%] mx-4 md:mx-10 flex-col dark:text-gray_100 rounded-lg py-6 items-start space-y-4 dark:bg-gray_800 max-w-6xl bg-gray_50 overflow-y-auto mt-10">
       <div className="flex flex-col lg:flex-row gap-3 lg:gap-6 w-full">
         <motion.img
           initial={{
@@ -78,7 +78,7 @@ const ExperienceCard = ({ experience }: Props) => {
         </div>
       </div>
 
-      <ul className="list-disc pl-4 px-3 exp-list text-xs md:text-base space-y-2 ml-5 text-left h-56 md:h-60  dark:scrollbar-thumb-blue_700 scrollbar-thumb-gray_300 overflow-y-auto scrollbar-track-transparent scrollbar-thumb-rounded-md scrollbar-thin text-justify">
+      <ul className="list-disc pl-4 px-3 exp-list text-xs md:text-base space-y-2 ml-5  h-56 md:h-60  overflow-y-auto scrollbar-track-transparent scrollbar-thumb-rounded-md scrollbar-thin text-justify">
         {experience?.points
           ?.filter((point) => point.trim())
           .map((point) => (
