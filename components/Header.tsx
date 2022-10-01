@@ -41,7 +41,8 @@ export default function Header({ socials, isDark, switchTheme }: Props) {
             />
           ))}
         </motion.div>
-        <motion.div
+        <motion.a
+          href="#contact"
           initial={{
             x: -500,
             opacity: 0,
@@ -63,13 +64,10 @@ export default function Header({ socials, isDark, switchTheme }: Props) {
             fgColor={fgColor}
             bgColor="transparent"
           />
-          <a
-            href="#contact"
-            className="uppercase hidden md:inline-flex text-sm text-gray-700 dark:text-gray-400"
-          >
+          <span className="uppercase hidden md:inline-flex text-sm text-gray-700 dark:text-gray-400">
             Get In Touch
-          </a>
-        </motion.div>
+          </span>
+        </motion.a>
         <motion.button
           initial={{ opacity: 0, scale: 0 }}
           animate={{ scale: 1, opacity: 1 }}
