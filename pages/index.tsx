@@ -12,11 +12,8 @@ import { fetchExperiences } from "../utils/fetchExperiences";
 import { fetchSkills } from "../utils/fetchSkills";
 import { fetchSocials } from "../utils/fetchSocials";
 import { fetchProjects } from "../utils/fetchProjects";
-import {
-  ArrowDownCircleIcon,
-  ArrowUpCircleIcon,
-} from "@heroicons/react/24/solid";
-import { useRef } from "react";
+import { ArrowUpCircleIcon } from "@heroicons/react/24/solid";
+import { useEffect, useRef, useState } from "react";
 
 interface Props {
   pageInfo: PageInfo;
@@ -33,6 +30,27 @@ const Home = ({
   experiences,
   socials,
 }: Props): JSX.Element => {
+  const [isDark, setIsDark] = useState<null | boolean>(null);
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      ((theme = "dark") => {
+        document.documentElement.classList.add(theme);
+        setIsDark(theme === "dark");
+      })(localStorage.getItem("portfolioTheme") ?? "dark");
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    if (isDark) {
+      setIsDark((state) => !state);
+      localStorage?.setItem("portfolioTheme", "light");
+      document.documentElement.classList.remove("dark");
+    } else {
+      setIsDark((state) => !state);
+      localStorage?.setItem("portfolioTheme", "dark");
+      document.documentElement.classList.add("dark");
+    }
+  };
   const ref = useRef<HTMLDivElement>(null);
   const scrollToTop = () => {
     ref.current &&
@@ -41,13 +59,13 @@ const Home = ({
   return (
     <div
       ref={ref}
-      className="relative tw-bg-primary home transition-colors ease-in-out duration-500 h-screen overflow-y-scroll"
+      className="tw-bg-primary home transition-colors ease-in-out duration-500 h-screen overflow-y-scroll"
     >
       <Head>
         <title>{pageInfo?.name}</title>
       </Head>
       {/* Header */}
-      <Header socials={socials} />
+      <Header isDark={isDark} switchTheme={toggleDarkMode} socials={socials} />
       {/* Hero */}
       <section id="hero">
         <Hero pageInfo={pageInfo} />
@@ -75,7 +93,7 @@ const Home = ({
       </section>
       <div
         onClick={scrollToTop}
-        className="w-10 h-10 rounded-full animate-bounce  sticky z-[100] bottom-5 cursor-pointer shadow-md left-[85%] lg:left-[95%]"
+        className="w-10 h-10 rounded-full animate-bounce sticky z-[100] bottom-12 md:bottom-10 cursor-pointer shadow-md left-[85%] lg:left-[95%]"
       >
         <ArrowUpCircleIcon className="text-gray_800 dark:text-gray_200" />
       </div>

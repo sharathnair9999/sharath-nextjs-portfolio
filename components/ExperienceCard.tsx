@@ -54,7 +54,7 @@ const ExperienceCard = ({ experience }: Props) => {
           <p className="font-bold text-md lg:text-lg my-2">
             {experience?.company}
           </p>
-          <p className="text-sm lg:text-lg text-gray-300">{`${getReadableDate(
+          <p className="text-sm lg:text-lg dark:text-gray_400 text-gray_700">{`${getReadableDate(
             experience?.dateStarted
           )} - ${
             experience?.isCurrentlyWorkingHere
@@ -78,7 +78,7 @@ const ExperienceCard = ({ experience }: Props) => {
         </div>
       </div>
 
-      <ul className="list-disc pl-4 px-3 exp-list text-xs md:text-base space-y-2 ml-5 text-left h-56 md:h-60  dark:scrollbar-thumb-blue_700 scrollbar-thumb-gray_300 overflow-y-auto scrollbar-track-transparent scrollbar-thumb-rounded-md scrollbar-thin">
+      <ul className="list-disc pl-4 px-3 exp-list text-xs md:text-base space-y-2 ml-5 text-left h-56 md:h-60  dark:scrollbar-thumb-blue_700 scrollbar-thumb-gray_300 overflow-y-auto scrollbar-track-transparent scrollbar-thumb-rounded-md scrollbar-thin text-justify">
         {experience?.points
           ?.filter((point) => point.trim())
           .map((point) => (

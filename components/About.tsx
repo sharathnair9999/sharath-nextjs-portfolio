@@ -8,7 +8,7 @@ type Props = {
 
 const About = ({ pageInfo }: Props) => {
   return (
-    <div className="h-screen flex relative flex-col text-center md:text-left max-w-7xl pt-20 justify-evenly space-y-5 mx-auto items-center">
+    <div className="lg:h-screen h-fit flex relative flex-col text-center md:text-left max-w-7xl lg:pt-20 lg:justify-evenly justify-start gap-10 space-y-5 mx-auto items-center">
       <h3 className="section-title ">About</h3>
       <div className="space-y-4 md:space-y-6 px-4 md:px-10 flex flex-col md:flex-row items-center gap-10">
         <motion.img
@@ -46,7 +46,7 @@ const About = ({ pageInfo }: Props) => {
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.5 }}
             viewport={{ once: true }}
-            className="text-xs md:text-base md:text-left dark:text-gray_300 text-gray_700 text-right"
+            className="text-xs md:text-base  dark:text-gray_300 text-gray_900 text-justify"
           >
             {pageInfo?.backgroundInformation}
           </motion.p>

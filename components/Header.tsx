@@ -1,33 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { SocialIcon } from "react-social-icons";
-type Props = { socials: Social[] };
+type Props = {
+  socials: Social[];
+  switchTheme: () => void;
+  isDark: boolean | null;
+};
 import { motion } from "framer-motion";
 import { SunIcon } from "@heroicons/react/24/outline";
 import { MoonIcon } from "@heroicons/react/24/solid";
 import { Social } from "../typings";
-export default function Header({ socials }: Props) {
-  const [isDark, setIsDark] = useState<null | boolean>(null);
+export default function Header({ socials, isDark, switchTheme }: Props) {
   const fgColor = isDark ? "hsl(0, 0%, 40%)" : "hsl(0, 0%, 30%)";
-  useEffect(() => {
-    if (typeof window !== undefined) {
-      ((theme = "dark") => {
-        document.documentElement.classList.add(theme);
-        setIsDark(theme === "dark");
-      })(localStorage.getItem("theme") ?? "dark");
-    }
-  }, []);
 
-  const toggleDarkMode = () => {
-    if (isDark) {
-      setIsDark((state) => !state);
-      localStorage?.setItem("theme", "light");
-      document.documentElement.classList.remove("dark");
-    } else {
-      setIsDark((state) => !state);
-      localStorage?.setItem("theme", "dark");
-      document.documentElement.classList.add("dark");
-    }
-  };
   return (
     <header className="sticky top-0  bg-inherit  z-50 w-full  ">
       <div className="px-4 lg:px-10 py-1 lg:py-2 mx-auto max-w-7xl md:px-20 flex">
@@ -47,7 +31,6 @@ export default function Header({ socials }: Props) {
           }}
           className="flex items-center mr-auto max-w-6xl justify-center"
         >
-          {/* Social Icons */}
           {socials.map((social) => (
             <SocialIcon
               key={social._id}
@@ -93,7 +76,7 @@ export default function Header({ socials }: Props) {
           transition={{
             duration: 1,
           }}
-          onClick={toggleDarkMode}
+          onClick={switchTheme}
         >
           {isDark ? (
             <motion.div

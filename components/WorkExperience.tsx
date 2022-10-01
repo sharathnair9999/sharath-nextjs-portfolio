@@ -4,34 +4,17 @@ import ExperienceCard from "./ExperienceCard";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import { Experience } from "../typings";
+import useWindowDimensions from "../custom-hooks/useWindowDimensions";
 
 type Props = {
   experiences: Experience[];
 };
 
 const WorkExperience = ({ experiences }: Props) => {
-  const [windowDimensions, setWindowDimensions] = useState({
-    width: 0,
-    height: 0,
-  });
-  useEffect(() => {
-    if (typeof window !== undefined) {
-      const getWindowDimensions = () => {
-        return {
-          width: window.innerWidth,
-          height: window.innerHeight,
-        };
-      };
-      const handleResize = () => {
-        setWindowDimensions(getWindowDimensions());
-      };
+  const dimensions = useWindowDimensions(null);
 
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }
-  }, [windowDimensions.width, windowDimensions.height]);
-
-  const setExperienceCardWidth = (width: number) => {
+  const setExperienceCardWidth = (width: number | undefined) => {
+    if (!width) return;
     if (width < 600) {
       return 100;
     }
@@ -57,7 +40,7 @@ const WorkExperience = ({ experiences }: Props) => {
         autoFocus={true}
         centerMode={true}
         className="w-[22rem] md:w-9/12  overflow-hidden lg:w-full"
-        centerSlidePercentage={setExperienceCardWidth(windowDimensions.width)}
+        centerSlidePercentage={setExperienceCardWidth(dimensions?.width)}
         showStatus={false}
         showThumbs={false}
         showIndicators={false}
