@@ -120,7 +120,7 @@ const Home = ({
 
 export default Home;
 
-Home.getInitialProps = async ({ req }: AppContext) => {
+Home.getInitialProps = async ({ req }: any) => {
   let host: string = "";
   if (req) {
     host = `http://${req.headers.host}`; // will give you localhost:3000
