@@ -24,6 +24,10 @@ export interface PageInfo extends SanityBody {
   name: string;
   phoneNumber: string;
   profilePic: Image;
+  shortInfo: string;
+  domain: string;
+  favicon: Image;
+  seoImage: Image;
 }
 
 export interface Technology extends SanityBody {

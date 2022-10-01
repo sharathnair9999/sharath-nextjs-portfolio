@@ -12,6 +12,14 @@ export default {
       of: [{ type: "string" }],
     },
     {
+      name: "favicon",
+      title: "Favicon",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
       name: "heroImage",
       title: "Image",
       type: "image",
@@ -19,6 +27,16 @@ export default {
         hotspot: true,
       },
     },
+    {
+      name: "seoImage",
+      title: "SEO Image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    },
+    { name: "shortInfo", title: "Short Info", type: "string" },
+    { name: "domain", title: "domain", type: "string" },
     {
       name: "backgroundInformation",
       title: "Background Information",

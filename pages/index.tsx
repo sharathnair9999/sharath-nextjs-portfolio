@@ -14,7 +14,13 @@ import { fetchSkills } from "../utils/fetchSkills";
 import { fetchSocials } from "../utils/fetchSocials";
 import { fetchProjects } from "../utils/fetchProjects";
 import { ArrowUpCircleIcon } from "@heroicons/react/24/solid";
-import { useEffect, useRef, useState } from "react";
+import {
+  DetailedHTMLProps,
+  MetaHTMLAttributes,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { AppContext } from "next/app";
 
 interface Props {
@@ -69,6 +75,22 @@ const Home = ({
     <>
       <Head>
         <title>{pageInfo?.name}</title>
+        <meta name="title" content={pageInfo?.name} />
+        <meta name="description" content={pageInfo?.shortInfo} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={pageInfo?.domain} />
+        <meta property="og:title" content={pageInfo?.name} />
+        <meta property="og:description" content={pageInfo?.shortInfo} />
+        <meta property="og:image" content={`${pageInfo?.domain}seoImage.png`} />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={pageInfo?.domain} />
+        <meta property="twitter:title" content={pageInfo?.name} />
+        <meta property="twitter:description" content={pageInfo?.shortInfo} />
+        <meta
+          property="twitter:image"
+          content={`${pageInfo?.domain}seoImage.png`}
+        />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <motion.div
         ref={ref}

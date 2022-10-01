@@ -42,7 +42,6 @@ const Projects = ({ projects }: Props) => {
         {projects?.sort(dateSortProjects).map((project, i) => (
           <motion.div
             initial={{
-              y: -300,
               opacity: 0,
             }}
             transition={{
@@ -50,7 +49,6 @@ const Projects = ({ projects }: Props) => {
             }}
             whileInView={{
               opacity: 1,
-              y: 0,
             }}
             viewport={{ once: true }}
             key={i}
@@ -95,7 +93,7 @@ const Projects = ({ projects }: Props) => {
           </motion.div>
         ))}
       </Carousel>
-      <div className="w-full absolute top-[50%] -translate-y-1/2 left-0 bg-blue_500/30 dark:bg-blue_500/20 h-[300px] lg:h-[500px] -skew-y-12 " />
+      <div className="w-full absolute top-[50%] -translate-y-1/2 left-0 bg-blue_500/30 dark:bg-blue_500/20 h-[250px] lg:h-[500px] -skew-y-12 " />
     </div>
   );
 };
