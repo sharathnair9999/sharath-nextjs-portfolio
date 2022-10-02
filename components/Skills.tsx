@@ -15,13 +15,13 @@ const Skills = ({ skills }: Props) => {
     return 0;
   };
   return (
-    <div className="flex relative flex-col text-center md:text-left  max-w-[2000px] xl:px-10 lg:h-screen h-fit space-y-6 justify-start lg:justify-evenly   mx-auto items-center">
+    <div className="flex relative flex-col text-center md:text-left  max-w-[2000px] xl:px-10 h-screen  py-10 space-y-6 justify-start lg:justify-evenly   mx-auto items-center">
       <h3 className="section-title">Skills</h3>
       <div className="grid grid-cols-3 mt-14  md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-4 lg:gap-x-10 lg:gap-y-8 ">
         {skills?.sort(sortSkills).map((skill, ind, thisArr) => (
           <Skill
             setSelectedSkill={setSelectedSkill}
-            directionTop={ind > Math.floor(thisArr.length / 2)}
+            directionTop={ind % 2 === 0}
             key={skill._id}
             skill={skill}
           />
@@ -29,8 +29,8 @@ const Skills = ({ skills }: Props) => {
       </div>
       <motion.div
         key={selectedSkill}
-        initial={{ y: 30, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
+        initial={{ x: 30, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
         className="h-5 flex flex-col gap-3 text-center"
       >

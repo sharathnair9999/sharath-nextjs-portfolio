@@ -19,7 +19,7 @@
     @apply px-3 py-1 md:px-5 dark:bg-gray_900 md:dark:bg-inherit md:hover:shadow-md  dark:hover:shadow-blue_800/60 md:py-2 hover:-translate-y-[2px] border-gray_600 dark:border-gray-500 font-semibold rounded-full uppercase text-xs md:text-sm tracking-widest text-gray_600  dark:text-gray_500 transition-all duration-300 border hover:dark:text-blue_300/70 hover:dark:border-blue_300/70;
   }
   .contact-input {
-    @apply outline-none bg-gray_300/10 rounded-md border-b dark:text-blue_100 px-2 py-1 md:py-2 border-blue_900  text-blue_900 placeholder-gray_500 transition-all focus:border-blue_300/40 hover:border-blue_300/40 focus:text-blue_900/40;
+    @apply outline-none bg-gray_300/10 rounded-md border-b dark:text-blue_100 px-3 py-3  border-blue_900  text-blue_900 placeholder-gray_500 transition-all focus:border-blue_300/40 hover:border-blue_300/40 focus:text-blue_900;
   }
   .common-hero-circle {
     @apply rounded-full border absolute mt-52;

@@ -25,7 +25,7 @@ const Projects = ({ projects }: Props) => {
   };
 
   return (
-    <div className="h-screen w-full relative overflow-hidden text-left flex flex-col justify-center mx-auto items-center z-20">
+    <div className="md:h-screen w-full relative overflow-hidden text-left flex flex-col justify-center mx-auto items-center z-20">
       <h3 className="section-title">Projects</h3>
 
       <Carousel

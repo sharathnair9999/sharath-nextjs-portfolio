@@ -127,7 +127,12 @@ const Home = ({
 
         {/* Contact Me */}
         <section id="contact">
-          <Contact />
+          <Contact
+            contactPerson={pageInfo?.name}
+            contactNumber={pageInfo.phoneNumber}
+            location={pageInfo?.address}
+            emailAddress={pageInfo?.email}
+          />
         </section>
         <div
           onClick={scrollToTop}

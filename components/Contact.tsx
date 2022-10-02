@@ -4,28 +4,32 @@ import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
-type Props = {};
-type Inputs = {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
+type Props = {
+  contactNumber: string;
+  emailAddress: string;
+  location: string;
+  contactPerson: string;
 };
-const Contact = (props: Props) => {
+const Contact = ({
+  contactPerson,
+  contactNumber,
+  emailAddress,
+  location,
+}: Props) => {
   const form: any = useRef();
   const sendEmail = (e: any) => {
     e.preventDefault();
-
+    // const serviceID: string = ;
     emailjs
       .sendForm(
-        "service_2yssdig",
-        "template_ghmawif",
+        `${process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID}`,
+        `${process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID}`,
         form.current,
-        "a4_QozzlMxhLLbCD2"
+        `${process.env.NEXT_PUBLIC_EMAILJS_USER_ID}`
       )
       .then(
         (result) => {
-          toast.success("Sent your message to Sharath!");
+          toast.success(`Sent your message to ${contactPerson}!`);
           e.target.reset();
         },
         (error) => {
@@ -35,7 +39,7 @@ const Contact = (props: Props) => {
   };
   return (
     <>
-      <div className="h-screen relative flex flex-col text-center md:text-left px-10 justify-center gap-5 md:justify-evenly mx-auto items-center">
+      <div className="min-h-screen relative flex flex-col text-center md:text-left px-10 justify-center gap-5 md:justify-evenly mx-auto items-center">
         <h3 className="section-title">Contact</h3>
         <div className="flex flex-col space-y-8 mt-5">
           <h4 className="dark:text-gray_300 text-lg md:text-3xl font-semibold text-center">
@@ -48,28 +52,28 @@ const Contact = (props: Props) => {
             <div className="flex items-center space-x-3 justify-center">
               <PhoneIcon className="text-blue_900 dark:text-blue_600 h-7 w-7 animate-pulse" />
               <p className="dark:text-gray_300 text-md md:text-xl">
-                +91-9701256071
+                {contactNumber}
               </p>
             </div>
             <div className="flex items-center space-x-3 justify-center">
               <MapPinIcon className="text-blue_900 dark:text-blue_600 h-7 w-7 animate-pulse" />
               <p className="dark:text-gray_300 text-md md:text-xl">
-                Hyderabad, Telangana, India
+                {location}
               </p>
             </div>
             <div className="flex items-center space-x-3 justify-center">
               <EnvelopeIcon className="text-blue_900 dark:text-blue_600 h-7 w-7 animate-pulse" />
               <p className="dark:text-gray_300 text-md md:text-xl">
-                sharathnair9999@gmail.com
+                {emailAddress}
               </p>
             </div>
           </div>
           <form
             ref={form}
             onSubmit={sendEmail}
-            className="flex flex-col space-y-2 mx-auto max-w-sm"
+            className="flex flex-col space-y-3 mx-auto max-w-sm"
           >
-            <div className="flex gap-2 flex-wrap sm:flex-nowrap ">
+            <div className="flex gap-3 flex-wrap sm:flex-nowrap ">
               <input
                 name="name"
                 required
@@ -96,7 +100,7 @@ const Contact = (props: Props) => {
               required
               name="message"
               placeholder="Message"
-              className="contact-input"
+              className="contact-input resize-none overflow-y-auto scrollbar-thin scrollbar-track-gray_50/40 scrollbar-track-rounded-md scrollbar-thumb-rounded-md scrollbar-thumb-blue_900 h-32 "
             ></textarea>
             <button className="bg-blue_900/90 transition-all hover:bg-blue_900 text-gray_100 rounded-md font-bold py-2">
               Submit
