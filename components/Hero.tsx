@@ -5,6 +5,10 @@ import BackgroundCircles from "./BackgroundCircles";
 import { motion } from "framer-motion";
 import { PageInfo } from "../typings";
 import { urlFor } from "../sanity";
+import {
+  ArrowDownTrayIcon,
+  ArrowTopRightOnSquareIcon,
+} from "@heroicons/react/24/outline";
 type Props = { pageInfo: PageInfo };
 
 const Hero = ({ pageInfo }: Props) => {
@@ -54,6 +58,14 @@ const Hero = ({ pageInfo }: Props) => {
             <button className="heroButton">Projects</button>
           </Link>
         </div>
+        <a
+          className="text-gray_900/80 hover:text-gray_900 dark:text-blue_200 hover:dark:text-blue_300 transition-colors gap-1 md:gap-2 font-normal lg:font-light flex justify-center items-center w-fit mx-auto pt-5 text-xs lg:text-base"
+          target={"_blank"}
+          href={`/resume.pdf`}
+        >
+          <span>Resume</span>
+          <ArrowTopRightOnSquareIcon height={"1rem"} width="1rem" />
+        </a>
       </div>
     </div>
   );

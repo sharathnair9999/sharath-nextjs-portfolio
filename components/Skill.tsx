@@ -18,7 +18,7 @@ const Skill = ({ directionTop, skill, setSelectedSkill }: Props) => {
       }}
       transition={{ duration: 0.6 }}
       onClick={() => setSelectedSkill(skill.title)}
-      className="p-1 shadow-md  bg-white/70 dark:bg-transparent shadow-gray_800/80 rounded-2xl transition-colors duration-300 relative flex cursor-pointer"
+      className="p-1 dark:hover:bg-gray_800/30 shadow-md hover:bg-gray_200 bg-white/70 dark:bg-transparent shadow-gray_800/80 rounded-2xl transition-colors duration-300 relative flex cursor-pointer"
     >
       <motion.img
         initial={{
