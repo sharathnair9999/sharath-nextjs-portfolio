@@ -51,9 +51,12 @@ const Contact = ({
           <div className="space-y-2 lg:space-y-4 flex flex-col items-start mx-auto">
             <div className="flex items-center space-x-3 justify-center">
               <PhoneIcon className="text-blue_900 dark:text-blue_600 h-7 w-7 animate-pulse" />
-              <p className="dark:text-gray_300 text-md md:text-xl">
+              <a
+                href={`tel:${contactNumber}`}
+                className="dark:text-gray_300 text-md md:text-xl"
+              >
                 {contactNumber}
-              </p>
+              </a>
             </div>
             <div className="flex items-center space-x-3 justify-center">
               <MapPinIcon className="text-blue_900 dark:text-blue_600 h-7 w-7 animate-pulse" />
