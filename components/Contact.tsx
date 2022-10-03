@@ -49,29 +49,29 @@ const Contact = ({
             </span>
           </h4>
           <div className="space-y-2 lg:space-y-4 flex flex-col items-start mx-auto">
-            <div className="flex items-center space-x-3 justify-center">
+            <a
+              href={`tel:${contactNumber}`}
+              className="flex items-center space-x-3 justify-center"
+            >
               <PhoneIcon className="text-blue_900 dark:text-blue_600 h-7 w-7 animate-pulse" />
-              <a
-                href={`tel:${contactNumber}`}
-                className="dark:text-gray_300 text-md md:text-xl"
-              >
+              <span className="dark:text-gray_300 text-md md:text-xl">
                 Give me a call
-              </a>
-            </div>
+              </span>
+            </a>
+            <a
+              href={`mailto:${emailAddress}`}
+              className="flex items-center space-x-3 justify-center"
+            >
+              <EnvelopeIcon className="text-blue_900 dark:text-blue_600 h-7 w-7 animate-pulse" />
+              <span className="dark:text-gray_300 text-md md:text-xl">
+                Write to me!
+              </span>
+            </a>
             <div className="flex items-center space-x-3 justify-center">
               <MapPinIcon className="text-blue_900 dark:text-blue_600 h-7 w-7 animate-pulse" />
               <p className="dark:text-gray_300 text-md md:text-xl">
                 {location}
               </p>
-            </div>
-            <div className="flex items-center space-x-3 justify-center">
-              <EnvelopeIcon className="text-blue_900 dark:text-blue_600 h-7 w-7 animate-pulse" />
-              <a
-                href={`mailto:${emailAddress}`}
-                className="dark:text-gray_300 text-md md:text-xl"
-              >
-                Write to me!
-              </a>
             </div>
           </div>
           <form
