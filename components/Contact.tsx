@@ -55,7 +55,7 @@ const Contact = ({
                 href={`tel:${contactNumber}`}
                 className="dark:text-gray_300 text-md md:text-xl"
               >
-                {contactNumber}
+                Give me a call
               </a>
             </div>
             <div className="flex items-center space-x-3 justify-center">
@@ -66,9 +66,12 @@ const Contact = ({
             </div>
             <div className="flex items-center space-x-3 justify-center">
               <EnvelopeIcon className="text-blue_900 dark:text-blue_600 h-7 w-7 animate-pulse" />
-              <p className="dark:text-gray_300 text-md md:text-xl">
-                {emailAddress}
-              </p>
+              <a
+                href={`mailto:${emailAddress}`}
+                className="dark:text-gray_300 text-md md:text-xl"
+              >
+                Write to me!
+              </a>
             </div>
           </div>
           <form
