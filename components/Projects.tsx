@@ -30,13 +30,13 @@ const Projects = ({ projects }: Props) => {
 
       <Carousel
         showStatus={false}
-        showIndicators={false}
-        // emulateTouch
+        showIndicators
         autoFocus
         centerMode
+        showArrows
         showThumbs={false}
         centerSlidePercentage={setExperienceCardWidth(dimensions?.width)}
-        className="mt-20 z-10 w-full overflow-hidden"
+        className="mt-20 z-10 w-full max-w-7xl overflow-hidden"
         preventMovementUntilSwipeScrollTolerance
       >
         {projects?.sort(dateSortProjects).map((project, i) => (

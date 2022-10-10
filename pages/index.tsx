@@ -6,6 +6,7 @@ import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import WorkExperience from "../components/WorkExperience";
+import { server as host } from "../config";
 import Header from "../components/Header";
 import { Experience, PageInfo, Project, Social, Technology } from "../typings";
 import { fetchPageInfo } from "../utils/fetchPageInfo";
@@ -14,14 +15,7 @@ import { fetchSkills } from "../utils/fetchSkills";
 import { fetchSocials } from "../utils/fetchSocials";
 import { fetchProjects } from "../utils/fetchProjects";
 import { ArrowUpCircleIcon } from "@heroicons/react/24/solid";
-import {
-  DetailedHTMLProps,
-  MetaHTMLAttributes,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import { AppContext } from "next/app";
+import { useEffect, useRef, useState } from "react";
 
 interface Props {
   pageInfo: PageInfo;
@@ -97,7 +91,7 @@ const Home = ({
         style={{ scaleX }}
         className="progress-bar"
       ></motion.div>
-      <div className="relative tw-bg-primary home transition-colors ease-in-out duration-500 overflow-y-scroll">
+      <div className="relative tw-bg-primary  home transition-colors ease-in-out duration-500 overflow-y-scroll">
         {/* Header */}
         <Header
           isDark={isDark}
@@ -147,23 +141,13 @@ const Home = ({
 
 export default Home;
 
-Home.getInitialProps = async ({ req }: any) => {
-  let host: string = "";
-  if (req) {
-    host = `http://${req.headers.host}`; // will give you localhost:3000
-  }
-
+export const getStaticProps = async () => {
   const pageInfo: PageInfo = await fetchPageInfo(host);
   const experiences: Experience[] = await fetchExperiences(host);
   const skills: Technology[] = await fetchSkills(host);
   const socials: Social[] = await fetchSocials(host);
   const projects: Project[] = await fetchProjects(host);
   return {
-    pageInfo,
-    experiences,
-    skills,
-    socials,
-    projects,
+    props: { pageInfo, experiences, skills, socials, projects },
   };
 };
-// export const getStaticProps: GetStaticProps<Props> = async () => {};

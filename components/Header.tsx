@@ -10,7 +10,7 @@ import { SunIcon } from "@heroicons/react/24/outline";
 import { MoonIcon } from "@heroicons/react/24/solid";
 import { Social } from "../typings";
 export default function Header({ socials, isDark, switchTheme }: Props) {
-  const fgColor = isDark ? "hsl(0, 0%, 40%)" : "hsl(0, 0%, 30%)";
+  const fgColor = isDark ? "hsl(0, 0%, 50%)" : "hsl(0, 0%, 30%)";
 
   return (
     <header className="sticky top-0  bg-inherit  z-50 w-full  ">
@@ -33,6 +33,7 @@ export default function Header({ socials, isDark, switchTheme }: Props) {
         >
           {socials.map((social) => (
             <SocialIcon
+              target={"_blank"}
               key={social._id}
               label={social.title}
               url={social.url}
@@ -62,6 +63,7 @@ export default function Header({ socials, isDark, switchTheme }: Props) {
             className="cursor-pointer"
             network="email"
             fgColor={fgColor}
+            target={"_blank"}
             bgColor="transparent"
           />
           <span className="uppercase hidden md:inline-flex text-sm text-gray-700 dark:text-gray-400">

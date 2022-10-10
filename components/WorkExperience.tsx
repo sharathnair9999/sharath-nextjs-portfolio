@@ -23,16 +23,16 @@ const WorkExperience = ({ experiences }: Props) => {
     >
       <h3 className="section-title">Experience</h3>
       <Carousel
-        // emulateTouch
+        showArrows
         swipeScrollTolerance={20}
-        autoFocus={true}
-        centerMode={true}
-        className="w-full overflow-hidden"
+        autoFocus
+        centerMode
+        className="w-full max-w-7xl  overflow-hidden"
         centerSlidePercentage={setExperienceCardWidth(dimensions?.width)}
         showStatus={false}
         showThumbs={false}
-        showIndicators={false}
-        preventMovementUntilSwipeScrollTolerance={true}
+        showIndicators
+        preventMovementUntilSwipeScrollTolerance
       >
         {experiences?.map((experience) => (
           <ExperienceCard key={experience._id} experience={experience} />

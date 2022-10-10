@@ -12,6 +12,9 @@
 }
 
 @layer components {
+  body {
+    @apply scrollbar-thin scrollbar-track-gray_300 dark:scrollbar-track-gray_700 scrollbar-track-rounded-md scrollbar-thumb-rounded-md scrollbar-thumb-blue-600/50;
+  }
   .home {
     @apply scrollbar-thin  lg:scrollbar-track-transparent lg:scrollbar-thumb-blue_600/80 lg:hover:scrollbar-thumb-blue_600 transition-colors scrollbar-track-rounded-md scrollbar-thumb-rounded-md;
   }
