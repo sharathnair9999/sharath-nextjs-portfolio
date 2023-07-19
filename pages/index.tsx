@@ -44,7 +44,7 @@ const Home = ({
 
   const toggleDarkMode = () => {
     if (isDark) {
-      setIsDark((state) => !state);
+      setIsDark((state) => {return !state});
       localStorage?.setItem("portfolioTheme", "light");
       document.documentElement.classList.remove("dark");
     } else {
