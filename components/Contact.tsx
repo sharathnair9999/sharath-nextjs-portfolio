@@ -19,7 +19,6 @@ const Contact = ({
   const form: any = useRef();
   const sendEmail = (e: any) => {
     e.preventDefault();
-    // const serviceID: string = ;
     emailjs
       .sendForm(
         `${process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID}`,
