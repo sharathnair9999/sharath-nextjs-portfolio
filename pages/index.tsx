@@ -42,9 +42,26 @@ const Home = ({
     }
   }, []);
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const toggleDarkMode = () => {
     if (isDark) {
-      setIsDark((state) => {return !state});
+      setIsDark((state) => !state);
       localStorage?.setItem("portfolioTheme", "light");
       document.documentElement.classList.remove("dark");
     } else {
@@ -130,7 +147,11 @@ const Home = ({
         </section>
         <div
           onClick={scrollToTop}
-          className="w-10 h-10 rounded-full animate-bounce fixed z-[100] bottom-10 md:bottom-10 cursor-pointer shadow-md left-[85%] lg:left-[90%]"
+          className={`w-10 h-10 rounded-full animate-bounce fixed transition-all duration-500 z-[100] bottom-10 md:bottom-10 cursor-pointer shadow-md ${
+            isVisible
+              ? "right-[10%] lg:right-[5%]"
+              : "right-[-10%] lg:right-[-5%]"
+          } `}
         >
           <ArrowUpCircleIcon className="text-gray_800 rounded-full dark:text-gray_200" />
         </div>

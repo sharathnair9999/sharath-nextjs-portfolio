@@ -4,7 +4,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 import { Project } from "../typings";
 import { setExperienceCardWidth, urlFor } from "../sanity";
-import { SocialIcon } from "react-social-icons";
 import useWindowDimensions from "../custom-hooks/useWindowDimensions";
 type Props = {
   projects: Project[];

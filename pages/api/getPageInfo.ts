@@ -5,7 +5,9 @@ import { PageInfo } from "../../typings";
 
 const query = groq`
   *[_type=="pageInfo"][0]{
-    ..., socials[]->
+    ..., 
+    "fileUrl": resume.asset->url,
+     socials[]->
   }
 `;
 

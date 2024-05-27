@@ -6,6 +6,14 @@ export default {
     { name: "name", title: "Name", type: "string" },
     { name: "role", title: "Role", type: "string" },
     {
+      name: "resume",
+      title: "Resume",
+      type: "file",
+      options: {
+        storeOriginalFilename: true,
+      },
+    },
+    {
       name: "typewriterWords",
       title: "Type Writer Words",
       type: "array",

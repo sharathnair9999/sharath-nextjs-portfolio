@@ -28,6 +28,7 @@ export interface PageInfo extends SanityBody {
   domain: string;
   favicon: Image;
   seoImage: Image;
+  fileUrl: string;
 }
 
 export interface Technology extends SanityBody {
