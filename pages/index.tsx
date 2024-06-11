@@ -147,11 +147,10 @@ const Home = ({
         </section>
         <div
           onClick={scrollToTop}
-          className={`w-10 h-10 rounded-full animate-bounce fixed transition-all duration-500 z-[100] bottom-10 md:bottom-10 cursor-pointer shadow-md ${
-            isVisible
+          className={`w-10 h-10 rounded-full animate-bounce fixed transition-all duration-500 z-[100] bottom-10 md:bottom-10 cursor-pointer shadow-md ${isVisible
               ? "right-[10%] lg:right-[5%]"
               : "right-[-10%] lg:right-[-5%]"
-          } `}
+            } `}
         >
           <ArrowUpCircleIcon className="text-gray_800 rounded-full dark:text-gray_200" />
         </div>
@@ -170,5 +169,6 @@ export const getStaticProps = async () => {
   const projects: Project[] = await fetchProjects(host);
   return {
     props: { pageInfo, experiences, skills, socials, projects },
+    revalidate: 60
   };
 };
