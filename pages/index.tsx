@@ -6,7 +6,6 @@ import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import WorkExperience from "../components/WorkExperience";
-import { server as host } from "../config";
 import Header from "../components/Header";
 import { Experience, PageInfo, Project, Social, Technology } from "../typings";
 import { fetchPageInfo } from "../utils/fetchPageInfo";
@@ -32,19 +31,22 @@ const Home = ({
   experiences,
   socials,
 }: Props): JSX.Element => {
-  const [isDark, setIsDark] = useState<null | boolean>(null);
+  const [isDark, setIsDark] = useState<boolean>(true);
+
   useEffect(() => {
-    if (typeof window !== undefined) {
-      ((theme = "dark") => {
-        document.documentElement.classList.add(theme);
-        setIsDark(theme === "dark");
-      })(localStorage.getItem("portfolioTheme") ?? "dark");
+    if (typeof window !== "undefined") {
+      const theme = localStorage.getItem("portfolioTheme") ?? "dark";
+      const isDarkMode = theme === "dark";
+      document.documentElement.classList.toggle("dark", isDarkMode);
+      setIsDark(isDarkMode);
     }
   }, []);
 
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const handleScroll = () => {
       if (window.scrollY > 100) {
         setIsVisible(true);
@@ -72,7 +74,7 @@ const Home = ({
   };
   const ref = useRef<HTMLDivElement>(null);
   const scrollToTop = () => {
-    if (typeof window !== undefined) {
+    if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     }
   };
@@ -148,8 +150,8 @@ const Home = ({
         <div
           onClick={scrollToTop}
           className={`w-10 h-10 rounded-full animate-bounce fixed transition-all duration-500 z-[100] bottom-10 md:bottom-10 cursor-pointer shadow-md ${isVisible
-              ? "right-[10%] lg:right-[5%]"
-              : "right-[-10%] lg:right-[-5%]"
+            ? "right-[10%] lg:right-[5%]"
+            : "right-[-10%] lg:right-[-5%]"
             } `}
         >
           <ArrowUpCircleIcon className="text-gray_800 rounded-full dark:text-gray_200" />
@@ -162,11 +164,11 @@ const Home = ({
 export default Home;
 
 export const getStaticProps = async () => {
-  const pageInfo: PageInfo = await fetchPageInfo(host);
-  const experiences: Experience[] = await fetchExperiences(host);
-  const skills: Technology[] = await fetchSkills(host);
-  const socials: Social[] = await fetchSocials(host);
-  const projects: Project[] = await fetchProjects(host);
+  const pageInfo: PageInfo = await fetchPageInfo();
+  const experiences: Experience[] = await fetchExperiences();
+  const skills: Technology[] = await fetchSkills();
+  const socials: Social[] = await fetchSocials();
+  const projects: Project[] = await fetchProjects();
   return {
     props: { pageInfo, experiences, skills, socials, projects },
     revalidate: 60

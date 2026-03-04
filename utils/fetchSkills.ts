@@ -1,8 +1,12 @@
+import { groq } from "next-sanity";
+import { sanityClient } from "../sanity";
 import { Technology } from "../typings";
 
-export const fetchSkills = async (host: string) => {
-  const res = await fetch(`${host}/api/getSkills`);
-  const data = await res.json();
-  const skills: Technology[] = data.skills;
+const query = groq`
+  *[_type=="skill"]
+`;
+
+export const fetchSkills = async () => {
+  const skills: Technology[] = await sanityClient.fetch(query);
   return skills;
 };

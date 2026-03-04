@@ -4,7 +4,7 @@ type Dimensions = null | { width: number; height: number };
 const useWindowDimensions = (props: null) => {
   const [dimensions, setDimensions] = useState<null | Dimensions>(null);
   useEffect(() => {
-    if (typeof window !== undefined) {
+    if (typeof window !== "undefined") {
       const getWindowDimensions = () => {
         return {
           width: window.innerWidth,

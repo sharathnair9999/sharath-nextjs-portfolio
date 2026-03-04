@@ -1,8 +1,15 @@
+import { groq } from "next-sanity";
+import { sanityClient } from "../sanity";
 import { Project } from "../typings";
 
-export const fetchProjects = async (host: string) => {
-  const res = await fetch(`${host}/api/getProjects`);
-  const data = await res.json();
-  const projects: Project[] = data.projects;
+const query = groq`
+  *[_type=="projects"]{
+    ...,
+    technologies[]->
+  }
+`;
+
+export const fetchProjects = async () => {
+  const projects: Project[] = await sanityClient.fetch(query);
   return projects;
 };

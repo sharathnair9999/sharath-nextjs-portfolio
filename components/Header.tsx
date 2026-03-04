@@ -3,7 +3,7 @@ import { SocialIcon } from "react-social-icons";
 type Props = {
   socials: Social[];
   switchTheme: () => void;
-  isDark: boolean | null;
+  isDark: boolean;
 };
 import { motion } from "framer-motion";
 import { SunIcon } from "@heroicons/react/24/outline";

@@ -1,8 +1,16 @@
+import { groq } from "next-sanity";
+import { sanityClient } from "../sanity";
 import { PageInfo } from "../typings";
 
-export const fetchPageInfo = async (host: string) => {
-  const res = await fetch(`${host}/api/getPageInfo`);
-  const data = await res.json();
-  const pageInfo: PageInfo = data.pageInfo;
+const query = groq`
+  *[_type=="pageInfo"][0]{
+    ..., 
+    "fileUrl": resume.asset->url,
+     socials[]->
+  }
+`;
+
+export const fetchPageInfo = async () => {
+  const pageInfo: PageInfo = await sanityClient.fetch(query);
   return pageInfo;
 };
