@@ -18,7 +18,7 @@ const { title, description = site.seo.description, type = 'profile' } = Astro.pr
 const pageTitle = title ? `${title} · ${site.name}` : site.seo.title;
 const canonical = canonicalUrl(Astro.url.pathname);
 const ogImage = absoluteUrl('/og.png');
-const avatar = await getImage({ src: asset(site.avatar.src), width: 400, format: 'jpeg' });
+const avatar = await getImage({ src: asset(site.avatar.src), width: 320, format: 'jpeg' });
 
 const [jobs, education, skills] = await Promise.all([
   getCollection('experience'),
