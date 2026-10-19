@@ -12,12 +12,12 @@ const { hero } = site;
     <Image
       src={asset(site.avatar.src)}
       alt={site.avatar.alt}
-      width={80}
-      height={80}
+      width={112}
+      height={112}
       densities={[1, 2]}
       loading="eager"
       fetchpriority="high"
-      class="size-20 rounded-full object-cover ring-2 ring-border"
+      class="size-24 rounded-full object-cover ring-2 ring-border sm:size-28"
     />
     {hero.status && (
       <p class="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs text-muted">

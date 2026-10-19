@@ -30,8 +30,8 @@ export const GET: APIRoute = async () => {
           type: 'img',
           props: {
             src: avatarUri,
-            width: 88,
-            height: 88,
+            width: 112,
+            height: 112,
             style: { borderRadius: 999, border: `2px solid ${c.border}` },
           },
         },
