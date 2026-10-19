@@ -1,0 +1,61 @@
+---
+import { getCollection } from 'astro:content';
+import Section from './Section.astro';
+import { site, fill } from '@/lib/site';
+import { formatRange } from '@/lib/dates';
+const education = (await getCollection('education')).sort((a, b) => a.data.order - b.data.order);
+const s = site.sections.about;
+---
+
+<Section {...s}>
+  <div class="grid gap-10 sm:grid-cols-[1fr_14rem]">
+    <div class="space-y-5 text-[1.05rem] leading-relaxed text-muted">
+      {site.about.paragraphs.map((p, i) => (
+        <p data-reveal style={`--i:${i}`}>
+          {fill(p)}
+        </p>
+      ))}
+    </div>
+    <aside
+      class="self-start rounded-2xl border border-border bg-surface p-5 text-sm"
+      data-reveal
+      style="--i:2"
+    >
+      <h3 class="eyebrow mb-3">{site.ui.education}</h3>
+      {education.map(({ data }) => (
+        <div>
+          <p class="font-medium text-fg">{data.degree}</p>
+          <p class="mt-1 text-muted">{data.school}</p>
+          <p class="mt-2 font-mono text-xs text-subtle">
+            {formatRange(data.start, data.end, site.ui.present)}
+            {data.note && <> · {data.note}</>}
+          </p>
+        </div>
+      ))}
+    </aside>
+  </div>
+
+  <div class="mt-14" data-reveal>
+    <h3 class="eyebrow mb-5">{site.trivia.title}</h3>
+    <ul class="grid gap-3 sm:grid-cols-2">
+      {site.trivia.items.map((item, i) => (
+        <li
+          class="group flex gap-4 rounded-2xl border border-border bg-surface p-4 transition duration-300 hover:-translate-y-0.5 hover:border-subtle sm:last:odd:col-span-2"
+          data-reveal
+          style={`--i:${i % 2}`}
+        >
+          <span
+            class="grid size-10 shrink-0 place-items-center rounded-xl bg-surface-2 text-xl transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"
+            aria-hidden="true"
+          >
+            {item.emoji}
+          </span>
+          <span>
+            <span class="block text-sm font-medium text-fg">{item.label}</span>
+            <span class="mt-1 block text-sm text-muted">{item.text}</span>
+          </span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Section>

@@ -1,38 +1,49 @@
 {
   "name": "sharath-portfolio",
-  "version": "0.1.0",
-  "private": true,
+  "type": "module",
+  "version": "2.0.0",
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "screenshots": "node scripts/capture-screenshots.mjs",
+    "verify": "pnpm check && pnpm lint && pnpm format:check && pnpm test && pnpm build && pnpm test:e2e"
   },
   "dependencies": {
-    "@heroicons/react": "^2.0.11",
-    "@portabletext/react": "^1.0.6",
-    "@sanity/image-url": "^1.0.1",
-    "emailjs-com": "^3.2.0",
-    "framer-motion": "^7.3.5",
-    "next": "12.3.0",
-    "next-sanity": "^0.8.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-responsive-carousel": "^3.2.23",
-    "react-simple-typewriter": "^4.0.2",
-    "react-social-icons": "^5.14.0",
-    "react-toastify": "^9.0.8",
-    "tailwind-scrollbar": "^2.0.1"
+    "@astrojs/sitemap": "^3.7.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.4.1",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
-    "@types/node": "18.7.18",
-    "@types/react": "18.0.20",
-    "@types/react-dom": "18.0.6",
-    "autoprefixer": "^10.4.11",
-    "eslint": "8.23.1",
-    "eslint-config-next": "12.3.0",
-    "postcss": "^8.4.16",
-    "tailwindcss": "^3.1.8",
-    "typescript": "4.8.3"
-  }
+    "@astrojs/check": "^0.9.11",
+    "@axe-core/playwright": "^4.14.0",
+    "@eslint/js": "^10.0.1",
+    "@fontsource/geist-sans": "^5.3.0",
+    "@playwright/test": "^1.64.1",
+    "@resvg/resvg-js": "^2.6.2",
+    "eslint": "^10.13.0",
+    "eslint-plugin-astro": "^3.2.1",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.1",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "satori": "^0.63.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.0",
+    "vitest": "^5.0.5"
+  },
+  "private": true,
+  "packageManager": "pnpm@10.15.1"
 }

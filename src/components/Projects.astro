@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import Section from './Section.astro';
+import ProjectCard from './ProjectCard.astro';
+import { site } from '@/lib/site';
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Section {...site.sections.projects}>
+  <div class="grid gap-5 sm:grid-cols-2">
+    {projects.map(({ data }, i) => (
+      <ProjectCard project={data} index={i} />
+    ))}
+  </div>
+</Section>

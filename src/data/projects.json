@@ -1,0 +1,26 @@
+[
+  {
+    "id": "social-ease",
+    "title": "Social Ease",
+    "summary": "A social media app for posting, liking and bookmarking. Basically Twitter, minus the drama.",
+    "year": 2023,
+    "image": "social-ease.png",
+    "stack": ["React", "Redux Toolkit", "Firebase", "Tailwind CSS"],
+    "links": {
+      "live": "https://social-ease.vercel.app/",
+      "repo": "https://github.com/sharathnair9999/Social-Ease"
+    }
+  },
+  {
+    "id": "nothing-store",
+    "title": "Nothing Store",
+    "summary": "A gadget store with a cart, a wishlist and a test-mode checkout. Please don't try to buy anything.",
+    "year": 2022,
+    "image": "nothing-store.png",
+    "stack": ["React", "React Router", "Mirage JS", "Razorpay"],
+    "links": {
+      "live": "https://nothingstore.netlify.app/",
+      "repo": "https://github.com/sharathnair9999/Nothing-Store-Project"
+    }
+  }
+]

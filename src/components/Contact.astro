@@ -1,0 +1,56 @@
+---
+import Section from './Section.astro';
+import Icon from './Icon.astro';
+import SocialLinks from './SocialLinks.astro';
+import { site } from '@/lib/site';
+const { contact } = site;
+---
+
+<Section {...site.sections.contact}>
+  <div class="rounded-3xl border border-border bg-surface p-6 sm:p-10" data-reveal>
+    <p class="max-w-lg text-2xl font-medium tracking-tight sm:text-3xl">{contact.headline}</p>
+    <p class="mt-3 max-w-lg text-muted">{contact.body}</p>
+
+    <div class="mt-8 flex flex-wrap items-center gap-3">
+      <a href={`mailto:${site.email}`} class="btn-primary">
+        <Icon name="mail" size={16} />
+        {site.email}
+      </a>
+      <button type="button" class="btn-ghost" data-copy={site.email} data-copied-text={site.ui.copied}>
+        <Icon name="copy" size={16} />
+        <span data-copy-label aria-live="polite">
+          {site.ui.copyEmail}
+        </span>
+      </button>
+    </div>
+
+    <dl class="mt-10 grid grid-cols-2 gap-6 border-t border-border pt-6 text-sm">
+      <div>
+        <dt class="eyebrow">{contact.locationLabel}</dt>
+        <dd class="mt-2 flex items-start gap-2">
+          <Icon name="map-pin" size={16} class="mt-0.5 shrink-0 text-subtle" />
+          {site.location}
+        </dd>
+      </div>
+      <div>
+        <dt class="eyebrow">{site.resume.label}</dt>
+        <dd class="mt-2">
+          <a
+            href={site.resume.href}
+            class="link group inline-flex items-center gap-2"
+            target="_blank"
+            rel="noopener"
+          >
+            <Icon
+              name="paperclip"
+              size={16}
+              class="text-subtle transition-transform group-hover:-rotate-12"
+            />
+            {site.ui.resumeFormat}
+          </a>
+        </dd>
+      </div>
+    </dl>
+    <SocialLinks class="-ml-2 mt-6" />
+  </div>
+</Section>

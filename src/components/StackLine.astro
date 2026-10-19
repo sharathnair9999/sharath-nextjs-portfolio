@@ -1,0 +1,22 @@
+---
+// Tech used, as a quiet mono line. Separators sit before each item after the first,
+// so a wrapped line never starts with a dot.
+interface Props {
+  items: string[];
+  class?: string;
+}
+const { items, class: className } = Astro.props;
+---
+
+<ul class:list={['flex flex-wrap gap-x-2 font-mono text-xs text-subtle', className]}>
+  {items.map((item, i) => (
+    <li class="whitespace-nowrap">
+      {i > 0 && (
+        <span class="mr-2" aria-hidden="true">
+          ·
+        </span>
+      )}
+      {item}
+    </li>
+  ))}
+</ul>

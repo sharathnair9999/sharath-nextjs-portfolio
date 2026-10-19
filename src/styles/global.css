@@ -1,0 +1,214 @@
+@import 'tailwindcss';
+
+/* Theme is set on <html data-theme> by an inline script before first paint. */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+:root {
+  color-scheme: light;
+  --bg: oklch(0.985 0.002 85);
+  --surface: oklch(1 0 0);
+  --surface-2: oklch(0.965 0.003 85);
+  --fg: oklch(0.21 0.006 85);
+  --muted: oklch(0.47 0.008 85);
+  --subtle: oklch(0.52 0.008 85);
+  --border: oklch(0.91 0.004 85);
+  --accent: oklch(0.52 0.15 48);
+  --accent-soft: oklch(0.52 0.15 48 / 0.08);
+  --ring: oklch(0.52 0.15 48 / 0.5);
+  --shadow: 0 1px 2px oklch(0 0 0 / 0.04), 0 8px 24px -12px oklch(0 0 0 / 0.12);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: oklch(0.17 0.006 265);
+  --surface: oklch(0.2 0.007 265);
+  --surface-2: oklch(0.235 0.008 265);
+  --fg: oklch(0.95 0.004 85);
+  --muted: oklch(0.73 0.008 265);
+  --subtle: oklch(0.6 0.01 265);
+  --border: oklch(0.29 0.01 265);
+  --accent: oklch(0.8 0.14 70);
+  --accent-soft: oklch(0.8 0.14 70 / 0.12);
+  --ring: oklch(0.8 0.14 70 / 0.55);
+  --shadow: 0 1px 2px oklch(0 0 0 / 0.3), 0 12px 32px -16px oklch(0 0 0 / 0.6);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --font-sans: var(--font-geist), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --shadow-card: var(--shadow);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-bg font-sans text-fg antialiased;
+    font-feature-settings: 'ss01', 'cv11';
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  /* Underline that grows from the left on hover. */
+  .link {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition:
+      background-size 0.35s var(--ease-out-soft),
+      color 0.2s ease;
+  }
+  .link:hover,
+  .link:focus-visible {
+    background-size: 100% 1px;
+  }
+}
+
+@utility chip {
+  @apply inline-flex items-center rounded-full border border-border bg-surface px-2.5 py-0.5 font-mono text-[0.72rem] leading-5 text-muted;
+}
+
+@utility btn {
+  @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition duration-200;
+}
+
+@utility btn-primary {
+  @apply btn bg-fg text-bg hover:-translate-y-px hover:shadow-card;
+}
+
+@utility btn-ghost {
+  @apply btn border border-border text-fg hover:-translate-y-px hover:border-subtle;
+}
+
+@utility icon-btn {
+  @apply inline-grid size-9 place-items-center rounded-full text-muted transition hover:bg-surface-2 hover:text-fg;
+}
+
+@utility eyebrow {
+  @apply font-mono text-xs tracking-wider text-accent;
+}
+
+/* ---------- Motion ---------- */
+
+/* Hero items fade up in sequence on load; --i sets each item's position in the sequence. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+.rise {
+  animation: rise 0.8s var(--ease-out-soft) both;
+  animation-delay: calc(var(--i, 0) * 90ms + 60ms);
+}
+
+/* Sections reveal once as they scroll into view. Only hidden when JS has run (html.js). */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s var(--ease-out-soft),
+    transform 0.7s var(--ease-out-soft);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Smooth open/close for <details> where supported. */
+:root {
+  interpolate-size: allow-keywords;
+}
+details::details-content {
+  block-size: 0;
+  overflow-y: clip;
+  transition:
+    block-size 0.35s var(--ease-out-soft),
+    content-visibility 0.35s allow-discrete;
+}
+details[open]::details-content {
+  block-size: auto;
+}
+
+.status-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .rise {
+    animation: none;
+  }
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Experience path: --progress (0–1) is set on scroll by initTimeline. Without JS the line is drawn in full. */
+.timeline-fill {
+  height: calc(var(--progress, 1) * (100% - 0.5rem));
+}
+.js [data-timeline] {
+  --progress: 0;
+}

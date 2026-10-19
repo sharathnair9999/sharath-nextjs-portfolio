@@ -1,0 +1,90 @@
+[
+  {
+    "id": "techmojo",
+    "company": "TechMojo Solutions",
+    "url": "https://techmojo.in",
+    "role": "Member of Technical Staff – Frontend",
+    "location": "Hyderabad, India",
+    "start": "2022-08",
+    "end": null,
+    "summary": "Where I went from \"the React guy\" to owning whole products end to end. Most of my time here has gone into work for our client ROSHN, a real-estate developer in Saudi Arabia.",
+    "engagements": [
+      {
+        "id": "roshn-txp",
+        "name": "Tenant Experience Portal",
+        "client": "ROSHN",
+        "role": "Frontend lead",
+        "start": "2026",
+        "end": null,
+        "summary": "A bilingual English and Arabic portal where store tenants raise requests, read announcements and manage their stores, while the leasing team runs the show behind the scenes.",
+        "highlights": [
+          "I own the frontend, from architecture calls to the last pixel of the right-to-left layout.",
+          "Built the whole sign-in experience: two-step login, password resets, roles, and single sign-on with Microsoft and ForgeRock. Getting three teams to agree on one login flow was the real boss fight.",
+          "Made testing a habit instead of a chore, so release days feel pleasantly boring.",
+          "Some screens had grown past a thousand lines and were getting hard to handle. That's what she said. I broke them into small, reusable pieces without changing a thing users could see."
+        ],
+        "stack": ["React Router 7", "TypeScript", "TanStack Query", "Playwright"]
+      },
+      {
+        "id": "roshn-com-rds",
+        "name": "ROSHN.com and the ROSHN Design System",
+        "client": "ROSHN",
+        "role": "Frontend engineer",
+        "url": "https://www.roshn.sa",
+        "start": "2024-01",
+        "end": "2026",
+        "summary": "ROSHN's public website, plus the design system that keeps their different brands looking like one family.",
+        "highlights": [
+          "Built the public site on Remix with Arabic and right-to-left support, accessibility and mobile-first layouts from day one.",
+          "Built the design system from scratch. Designers change a colour in Figma and every brand updates. The designers were happy, and designers are never happy.",
+          "Set up a form engine driven by the CMS, so new forms ship without a code change."
+        ],
+        "stack": ["Remix", "Storybook", "Emotion", "Strapi"]
+      },
+      {
+        "id": "align",
+        "name": "Align",
+        "role": "Frontend lead",
+        "start": "2022-08",
+        "end": "2024-01",
+        "summary": "Our in-house tool for setting goals and running performance reviews.",
+        "highlights": [
+          "Led the frontend and built a kit of reusable widgets, so new screens snapped together like Lego.",
+          "Built a Microsoft Teams bot to collect employee feedback, because nobody opens survey emails."
+        ],
+        "stack": ["React", "Redux", "Material UI", "Node.js"]
+      }
+    ]
+  },
+  {
+    "id": "tcs",
+    "company": "Tata Consultancy Services",
+    "url": "https://www.tcs.com",
+    "role": "Frontend Engineer",
+    "location": "Hyderabad, India",
+    "start": "2021-06",
+    "end": "2022-08",
+    "summary": "My first full-time role, and a crash course in enterprise software.",
+    "highlights": [
+      "Moved a legacy enterprise app onto React, one screen at a time.",
+      "Made every screen work on phones and tablets, which in enterprise land counts as a revolution.",
+      "Turned a maze of step-by-step wizards into one simple form. Fewer clicks, fewer sighs."
+    ],
+    "stack": ["React", "Redux", "Formik", "Material UI"]
+  },
+  {
+    "id": "broadridge",
+    "company": "Broadridge Financial Solutions",
+    "url": "https://www.broadridge.com",
+    "role": "Member Technical",
+    "location": "Hyderabad, India",
+    "start": "2020-10",
+    "end": "2021-06",
+    "summary": "Where I learned that shipping with a team beats coding alone.",
+    "highlights": [
+      "Built a drag-and-drop Kanban board with live charts, alongside five other engineers.",
+      "Made progress bars and graphs that moved smoothly and looked good doing it."
+    ],
+    "stack": ["React", "React DnD", "React Charts"]
+  }
+]

@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import Section from './Section.astro';
+import { site } from '@/lib/site';
+const groups = (await getCollection('skills')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Section {...site.sections.skills}>
+  <dl class="grid gap-8 sm:grid-cols-[10rem_1fr] sm:gap-x-8 sm:gap-y-7">
+    {groups.map(({ data }, i) => (
+      <div class="contents">
+        <dt class="text-sm font-medium text-fg sm:pt-1" data-reveal style={`--i:${i % 3}`}>
+          {data.title}
+        </dt>
+        <dd class="-mt-5 flex flex-wrap gap-1.5 sm:mt-0" data-reveal style={`--i:${i % 3}`}>
+          {data.items.map((item) => (
+            <span class="chip transition-colors hover:border-accent hover:text-fg">{item}</span>
+          ))}
+        </dd>
+      </div>
+    ))}
+  </dl>
+</Section>

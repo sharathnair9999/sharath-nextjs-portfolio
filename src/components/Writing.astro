@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import Section from './Section.astro';
+import Icon from './Icon.astro';
+import { site } from '@/lib/site';
+import { formatDate } from '@/lib/dates';
+const posts = (await getCollection('writing')).sort((a, b) => b.data.date.localeCompare(a.data.date));
+const blog = site.socials.find((s) => s.id === 'blog');
+---
+
+<Section {...site.sections.writing}>
+  <ul class="-mx-4 divide-y divide-border">
+    {posts.map(({ data }, i) => (
+      <li data-reveal style={`--i:${i % 3}`}>
+        <a
+          href={data.url}
+          target="_blank"
+          rel="noopener"
+          class="group grid gap-x-6 gap-y-1 rounded-xl px-4 py-5 transition-colors hover:bg-surface sm:grid-cols-[7.5rem_1fr_auto]"
+        >
+          <time datetime={data.date} class="pt-0.5 font-mono text-xs text-subtle">
+            {formatDate(data.date)}
+          </time>
+          <span>
+            <span class="block font-medium text-fg">{data.title}</span>
+            <span class="mt-1 block text-sm text-muted">{data.summary}</span>
+            <span class="mt-2 block font-mono text-xs text-subtle">
+              {data.readingMinutes} {site.ui.minRead}
+            </span>
+          </span>
+          <Icon
+            name="arrow-up-right"
+            size={18}
+            class="hidden text-subtle transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent sm:block"
+          />
+        </a>
+      </li>
+    ))}
+  </ul>
+  {blog && (
+    <p class="mt-8" data-reveal>
+      <a
+        href={blog.href}
+        target="_blank"
+        rel="noopener"
+        class="link group inline-flex items-center gap-1 font-medium"
+      >
+        {site.ui.readOnBlog}
+        <Icon
+          name="arrow-up-right"
+          size={16}
+          class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+        />
+      </a>
+    </p>
+  )}
+</Section>

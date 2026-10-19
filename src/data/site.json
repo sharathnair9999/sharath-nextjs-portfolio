@@ -1,0 +1,222 @@
+{
+  "name": "Sharath Nair",
+  "shortName": "Sharath",
+  "role": "Senior Frontend Engineer",
+  "url": "https://sharath-nair.vercel.app",
+  "locale": "en_IN",
+  "lang": "en",
+  "location": "Hyderabad, India",
+  "careerStart": "2021-06",
+  "email": "sharathnair9999@gmail.com",
+  "currentCompany": "TechMojo Solutions",
+  "resume": {
+    "href": "/Sharath_Nair_Resume.pdf",
+    "label": "Resume"
+  },
+  "avatar": {
+    "src": "avatar.jpg",
+    "alt": "Portrait of Sharath Nair"
+  },
+  "seo": {
+    "title": "Sharath Nair · Senior Frontend Engineer",
+    "description": "Senior frontend engineer in Hyderabad building fast, accessible React apps: server-rendered products, design systems and secure sign-in flows.",
+    "keywords": [
+      "Sharath Nair",
+      "Senior Frontend Engineer",
+      "React developer Hyderabad",
+      "TypeScript",
+      "React Router 7",
+      "Remix",
+      "Design systems",
+      "Web accessibility"
+    ],
+    "twitterHandle": "@sharathnair9999"
+  },
+  "hero": {
+    "greeting": "Hi, I'm Sharath.",
+    "headline": "I build fast, accessible interfaces for the web.",
+    "intro": "I've spent {years}+ years shipping React apps that are fast, accessible and pleasantly boring to maintain. I take the work seriously. Myself, not so much.",
+    "status": "Senior Frontend Engineer at TechMojo",
+    "primaryCta": {
+      "label": "Get in touch",
+      "href": "#contact"
+    },
+    "secondaryCta": {
+      "label": "View resume",
+      "href": "/Sharath_Nair_Resume.pdf"
+    }
+  },
+  "about": {
+    "paragraphs": [
+      "I'm a frontend engineer in Hyderabad. For {years}+ years I've built React apps for enterprise and real-estate products: the parts people click on, and the parts that quietly keep them signed in and safe.",
+      "At TechMojo I lead the frontend of a tenant portal for our client ROSHN, in English and Arabic, so I now think in right-to-left. Before that I built ROSHN's design system and their public website.",
+      "These days I pair with AI agents a lot. They write code fast. I make sure it's code we'd still be happy to own next year."
+    ]
+  },
+  "trivia": {
+    "title": "Off the clock",
+    "items": [
+      {
+        "emoji": "🛋️",
+        "label": "Sitcom certified",
+        "text": "Equal parts Chandler Bing and Michael Scott. Could I BE any more of a sitcom reference?"
+      },
+      {
+        "emoji": "🧳",
+        "label": "Traveller",
+        "text": "Always planning the next trip. The itinerary is usually ready before the leave is approved."
+      },
+      {
+        "emoji": "🏔️",
+        "label": "Mountain person",
+        "text": "Beaches are nice, but give me switchbacks, cold air and a view that took some climbing."
+      },
+      {
+        "emoji": "🍛",
+        "label": "Biryani loyalist",
+        "text": "Eternal love for Hyderabadi biryani. I have strong opinions on dum, and pulao is not biryani."
+      },
+      {
+        "emoji": "🏋️",
+        "label": "Gym regular",
+        "text": "Most days start with a workout. It's the one sprint I never skip."
+      },
+      {
+        "emoji": "🍫",
+        "label": "Sweet tooth",
+        "text": "Huge one. Which, honestly, is half the reason the workouts exist."
+      },
+      {
+        "emoji": "🙌",
+        "label": "Ambidextrous",
+        "text": "Oh, and did I mention I'm ambidextrous? Either hand works, which is a handy party trick."
+      },
+      {
+        "emoji": "☕",
+        "label": "Chai addict",
+        "text": "Kadak adrak chai, several cups a day. Challenge me to a chai-off and you will lose. Respectfully."
+      }
+    ]
+  },
+  "sections": {
+    "about": {
+      "id": "about",
+      "eyebrow": "01",
+      "title": "About"
+    },
+    "experience": {
+      "id": "experience",
+      "eyebrow": "02",
+      "title": "Where I've been",
+      "intro": "Follow the line. It's been a fun ride so far."
+    },
+    "projects": {
+      "id": "projects",
+      "eyebrow": "03",
+      "title": "Side quests",
+      "intro": "Pass-time projects from the pre-AI era, when documentation was god and Stack Overflow was the closest thing to a copilot. They still work. Mostly."
+    },
+    "skills": {
+      "id": "skills",
+      "eyebrow": "04",
+      "title": "Toolbox"
+    },
+    "writing": {
+      "id": "writing",
+      "eyebrow": "05",
+      "title": "Writing",
+      "intro": "Notes on React and JavaScript, written back when I had free evenings."
+    },
+    "contact": {
+      "id": "contact",
+      "eyebrow": "06",
+      "title": "Get in touch"
+    }
+  },
+  "contact": {
+    "headline": "Got a role, a project or just a good meme?",
+    "body": "My inbox is always open. I reply to every email, usually faster than I reply to the family group chat.",
+    "emailLabel": "Email",
+    "locationLabel": "Based in"
+  },
+  "nav": [
+    {
+      "label": "About",
+      "href": "/#about"
+    },
+    {
+      "label": "Experience",
+      "href": "/#experience"
+    },
+    {
+      "label": "Projects",
+      "href": "/#projects"
+    },
+    {
+      "label": "Writing",
+      "href": "/#writing"
+    },
+    {
+      "label": "Contact",
+      "href": "/#contact"
+    }
+  ],
+  "socials": [
+    {
+      "id": "github",
+      "label": "GitHub",
+      "handle": "sharathnair9999",
+      "href": "https://github.com/sharathnair9999"
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "handle": "sharath99",
+      "href": "https://www.linkedin.com/in/sharath99"
+    },
+    {
+      "id": "x",
+      "label": "X",
+      "handle": "@sharathnair9999",
+      "href": "https://x.com/sharathnair9999"
+    },
+    {
+      "id": "blog",
+      "label": "Blog",
+      "handle": "sharathcodes.hashnode.dev",
+      "href": "https://sharathcodes.hashnode.dev"
+    }
+  ],
+  "notFound": {
+    "title": "Page not found",
+    "body": "This page doesn't exist. Could this BE any more awkward?",
+    "cta": "Go back home"
+  },
+  "ui": {
+    "skipLink": "Skip to content",
+    "themeToggle": "Toggle colour theme",
+    "menu": "Menu",
+    "present": "Present",
+    "liveDemo": "Live demo",
+    "sourceCode": "Source",
+    "readOnBlog": "All posts on Hashnode",
+    "minRead": "min read",
+    "copyEmail": "Copy email",
+    "copied": "Copied",
+    "backToTop": "Back to top",
+    "education": "Education",
+    "resumeFormat": "View PDF",
+    "screenshotAlt": "Screenshot of {title}",
+    "newTab": "opens in a new tab",
+    "primaryNav": "Primary",
+    "mobileNav": "Site menu",
+    "client": "Client"
+  },
+  "footer": {
+    "note": "Built with Astro and Tailwind CSS. No CMS was harmed in the making of this website.",
+    "source": {
+      "label": "View source",
+      "href": "https://github.com/sharathnair9999/sharath-nextjs-portfolio"
+    }
+  }
+}

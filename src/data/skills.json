@@ -1,0 +1,81 @@
+[
+  {
+    "id": "frontend",
+    "title": "Frontend",
+    "items": [
+      "React 18/19",
+      "TypeScript",
+      "React Router 7",
+      "Remix",
+      "Next.js",
+      "Astro",
+      "TanStack Query",
+      "Redux Toolkit",
+      "React Hook Form",
+      "Zod",
+      "Emotion",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Storybook",
+      "i18next and RTL",
+      "WCAG and ARIA",
+      "Vite"
+    ]
+  },
+  {
+    "id": "backend",
+    "title": "Backend and APIs",
+    "items": [
+      "Node.js",
+      "REST API design",
+      "OAuth 2.0 / OIDC",
+      "Microsoft Entra ID",
+      "ForgeRock",
+      "JWT sessions",
+      "Strapi",
+      "Firebase",
+      "Microsoft Bot Framework",
+      "Redis"
+    ]
+  },
+  {
+    "id": "quality",
+    "title": "Quality",
+    "items": [
+      "Vitest",
+      "React Testing Library",
+      "Playwright",
+      "Lighthouse",
+      "ESLint",
+      "Prettier",
+      "Snyk",
+      "SonarQube"
+    ]
+  },
+  {
+    "id": "platform",
+    "title": "Platform and tooling",
+    "items": [
+      "GitLab CI/CD",
+      "GitHub Actions",
+      "Docker",
+      "pnpm",
+      "Git worktrees",
+      "GCP",
+      "Vercel",
+      "Figma tokens",
+      "Google Analytics"
+    ]
+  },
+  {
+    "id": "ai",
+    "title": "AI-assisted engineering",
+    "items": [
+      "Claude Code",
+      "Model Context Protocol",
+      "Multi-agent workflows",
+      "Agent briefs and acceptance checks",
+      "AI-driven QA passes"
+    ]
+  }
+]

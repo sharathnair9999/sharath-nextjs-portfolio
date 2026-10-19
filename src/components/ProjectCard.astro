@@ -1,0 +1,77 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import StackLine from './StackLine.astro';
+import { site } from '@/lib/site';
+import { projectImage } from '@/lib/images';
+import type { Project } from '@/lib/schemas';
+
+interface Props {
+  project: Project;
+  index?: number;
+}
+const { project, index = 0 } = Astro.props;
+const primary = project.links.live ?? project.links.repo;
+---
+
+<article
+  class="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-surface transition duration-300 ease-out-soft hover:-translate-y-1 hover:shadow-card"
+  data-reveal
+  style={`--i:${index % 2}`}
+>
+  <div class="aspect-[16/10] overflow-hidden border-b border-border bg-surface-2">
+    <Image
+      src={projectImage(project.image)}
+      alt={site.ui.screenshotAlt.replace('{title}', project.title)}
+      widths={[400, 640, 960]}
+      sizes="(min-width: 640px) 360px, 100vw"
+      class="h-full w-full object-cover object-top transition-transform duration-700 ease-out-soft group-hover:scale-[1.03]"
+      transition:name={`project-${project.id}`}
+    />
+  </div>
+  <div class="flex flex-1 flex-col p-5">
+    <div class="flex items-baseline justify-between gap-3">
+      <h3 class="font-medium tracking-tight">
+        {primary ? (
+          <a
+            href={primary}
+            target="_blank"
+            rel="noopener"
+            class="after:absolute after:inset-0 after:content-['']"
+          >
+            {project.title}
+          </a>
+        ) : (
+          project.title
+        )}
+      </h3>
+      <span class="font-mono text-xs text-subtle">{project.year}</span>
+    </div>
+    <p class="mt-2 text-muted">{project.summary}</p>
+    <StackLine items={project.stack} class="mt-4" />
+    <div class="relative z-10 mt-auto flex gap-4 pt-5 text-sm">
+      {project.links.live && (
+        <a
+          href={project.links.live}
+          target="_blank"
+          rel="noopener"
+          class="link inline-flex items-center gap-1 font-medium"
+        >
+          {site.ui.liveDemo}
+          <Icon name="arrow-up-right" size={14} />
+        </a>
+      )}
+      {project.links.repo && (
+        <a
+          href={project.links.repo}
+          target="_blank"
+          rel="noopener"
+          class="link inline-flex items-center gap-1 text-muted hover:text-fg"
+        >
+          <Icon name="github" size={14} />
+          {site.ui.sourceCode}
+        </a>
+      )}
+    </div>
+  </div>
+</article>

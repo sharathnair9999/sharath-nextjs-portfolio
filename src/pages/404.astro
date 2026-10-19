@@ -1,0 +1,25 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Icon from '@/components/Icon.astro';
+import { site } from '@/lib/site';
+---
+
+<BaseLayout title={site.notFound.title} description={site.notFound.body}>
+  <section class="grid min-h-[60dvh] place-content-center py-24 text-center">
+    <p class="rise eyebrow" style="--i:0">
+      404
+    </p>
+    <h1 class="rise mt-3 text-4xl font-semibold tracking-tight" style="--i:1">
+      {site.notFound.title}
+    </h1>
+    <p class="rise mt-3 text-muted" style="--i:2">
+      {site.notFound.body}
+    </p>
+    <p class="rise mt-8" style="--i:3">
+      <a href="/" class="btn-primary">
+        <Icon name="arrow-left" size={16} />
+        {site.notFound.cta}
+      </a>
+    </p>
+  </section>
+</BaseLayout>

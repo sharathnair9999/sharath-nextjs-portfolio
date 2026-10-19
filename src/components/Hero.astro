@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import SocialLinks from './SocialLinks.astro';
+import { site, fill } from '@/lib/site';
+import { asset } from '@/lib/images';
+const { hero } = site;
+---
+
+<section class="pt-16 pb-20 sm:pt-24 sm:pb-28" aria-labelledby="hero-title">
+  <div class="rise flex items-center gap-4" style="--i:0">
+    <Image
+      src={asset(site.avatar.src)}
+      alt={site.avatar.alt}
+      width={64}
+      height={64}
+      densities={[1, 2]}
+      loading="eager"
+      fetchpriority="high"
+      class="size-16 rounded-full object-cover ring-1 ring-border"
+    />
+    {hero.status && (
+      <p class="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs text-muted">
+        <span class="status-dot relative size-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
+        {hero.status}
+      </p>
+    )}
+  </div>
+
+  <p class="rise mt-10 font-mono text-sm text-accent" style="--i:1">
+    {hero.greeting}
+  </p>
+  <h1
+    id="hero-title"
+    class="rise mt-3 max-w-2xl text-4xl font-semibold tracking-tight sm:text-6xl sm:leading-[1.05]"
+    style="--i:2"
+  >
+    {hero.headline}
+  </h1>
+  <p class="rise mt-6 max-w-xl text-lg leading-relaxed text-muted" style="--i:3">
+    {fill(hero.intro)}
+  </p>
+
+  <div class="rise mt-9 flex flex-wrap items-center gap-3" style="--i:4">
+    <a href={hero.primaryCta.href} class="btn-primary">
+      <Icon name="mail" size={16} />
+      {hero.primaryCta.label}
+    </a>
+    <a href={hero.secondaryCta.href} class="btn-ghost" target="_blank" rel="noopener">
+      <Icon name="file" size={16} />
+      {hero.secondaryCta.label}
+    </a>
+    <SocialLinks class="ml-1" />
+  </div>
+</section>

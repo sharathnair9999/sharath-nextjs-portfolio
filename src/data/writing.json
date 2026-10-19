@@ -1,0 +1,34 @@
+[
+  {
+    "id": "custom-hooks",
+    "title": "Custom Hooks and More!!! Ft. React",
+    "summary": "What custom hooks really are, why they're just functions with a naming rule, and how they keep UI code readable.",
+    "url": "https://sharathcodes.hashnode.dev/custom-hooks-and-more-ft-react",
+    "date": "2022-06-09",
+    "readingMinutes": 5
+  },
+  {
+    "id": "recursive-components",
+    "title": "React Component - Yours Recursively!",
+    "summary": "Rendering nested comment threads with a component that renders itself, and where recursion earns its place in UI code.",
+    "url": "https://sharathcodes.hashnode.dev/react-component-yours-recursively",
+    "date": "2022-05-11",
+    "readingMinutes": 5
+  },
+  {
+    "id": "env-variables",
+    "title": "What is the deal with Environment Variables in a Front-End Application?",
+    "summary": "How .env files work in a React app, what they can and can't keep secret, and how to set them up yourself.",
+    "url": "https://sharathcodes.hashnode.dev/what-is-the-deal-with-environment-variables-in-a-front-end-application",
+    "date": "2022-04-08",
+    "readingMinutes": 5
+  },
+  {
+    "id": "tdz",
+    "title": "What The T. D. Z. !",
+    "summary": "The temporal dead zone explained: why let and const throw where var quietly didn't.",
+    "url": "https://sharathcodes.hashnode.dev/what-the-t-d-z",
+    "date": "2022-01-11",
+    "readingMinutes": 3
+  }
+]
