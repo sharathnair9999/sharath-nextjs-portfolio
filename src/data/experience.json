@@ -36,7 +36,7 @@
         "summary": "ROSHN's public website, plus the design system that keeps their different brands looking like one family.",
         "highlights": [
           "Built the public site on Remix with Arabic and right-to-left support, accessibility and mobile-first layouts from day one.",
-          "Built the design system from scratch. Designers change a colour in Figma and every brand updates. The designers were happy, and designers are never happy.",
+          "Built the design system from scratch. When designers change a colour in Figma, every brand's website picks it up automatically, with no developer needed. The designers loved it.",
           "Set up a form engine driven by the CMS, so new forms ship without a code change."
         ],
         "stack": ["Remix", "Storybook", "Emotion", "Strapi"]
